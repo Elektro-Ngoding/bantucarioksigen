@@ -2,6 +2,8 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar } from "react-bootstrap";
 import Home from "./Home/Home";
+import Login from "./Auth/Login";
+import Admin from "./Admin/Admin";
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
           </span>
         </a>
       </Navbar>
-      <Home />
+      {/* <Home /> */}
+      {/* <Login /> */}
+      <Admin/>
     </div>
   );
 }
