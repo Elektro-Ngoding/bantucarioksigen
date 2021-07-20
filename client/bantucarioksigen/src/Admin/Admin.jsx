@@ -6,6 +6,9 @@ import {
   Container,
   Form,
   Row,
+  Tab,
+  Table,
+  Tabs,
 } from "react-bootstrap";
 
 export class Admin extends Component {
@@ -13,124 +16,52 @@ export class Admin extends Component {
     return (
       <div>
         <Container
-          fluid="md"
+          fluid
           style={{ marginTop: 100, backgroundColor: "#F1F3F0", padding: 50 }}
         >
-          <Row style={{ marginBottom: 30, textAlign: "center" }}>
-            <h1>
-              <b>Alkes Central Medica</b>
-            </h1>
-          </Row>
-          <Form>
-            <Row>
-              <Col xs="3">
-                <h4>Status</h4>
-              </Col>
-              <Col xs="4" style={{ textAlign: "right",}}>
-                <div>
-                  <select
-                    className="selectpicker"
-                    data-style="select-new"
-                    data-live-search="true"
-                    data-size={3}
-                    id="StatusToko"
-                    name="StatusToko"
-                    data-width="100%"
-                  >
-                    <option value>Buka</option>
-                    <option value>Istirahat</option>
-                    <option value>Tutup</option>
-                  </select>
-                </div>
-              </Col>
-              <Col xs="4" style={{ textAlign: "right"}}>
-                <Button
-                  type="submit"
-                  style={{
-                    backgroundColor: "#073180",
-                    color: "#FFFFFF",
-                    padding: "6px 40px 6px 40px",
-                  }}
-                >
-                  Update
-                </Button>
-              </Col>
-            </Row>
-          </Form>
-          <hr />
-          <Form>
-            <Row>
-              <Col xs="3">
-                <h4>Stok</h4>
-              </Col>
-              <Col xs="4" style={{ textAlign: "right",}}>
-                <div>
-                  <select
-                    className="selectpicker"
-                    data-style="select-new"
-                    data-live-search="true"
-                    data-size={3}
-                    id="StatusToko"
-                    name="StatusToko"
-                    data-width="100%"
-                  >
-                    <option value>Stok Tersedia</option>
-                    <option value>Stok Kosong</option>
-                  </select>
-                </div>
-              </Col>
-              
-              <Col xs="4" style={{ textAlign: "right"}}>
-                <Button
-                  type="submit"
-                  style={{
-                    backgroundColor: "#073180",
-                    color: "#FFFFFF",
-                    padding: "6px 40px 6px 40px",
-                  }}
-                >
-                  Update
-                </Button>
-              </Col>
-            </Row>
-          </Form>
-          <hr />
-          <Form>
-            <Row>
-              <Col xs="3">
-                <h4>Antrian</h4>
-              </Col>
-              <Col xs="4" style={{ textAlign: "right",}}>
-                <div>
-                  <select
-                    className="selectpicker"
-                    data-style="select-new"
-                    data-live-search="true"
-                    data-size={3}
-                    id="StatusToko"
-                    name="StatusToko"
-                    data-width="100%"
-                  >
-                    <option value>Ada Antrian</option>
-                    <option value>Tidak Ada Antrian</option>
-                  </select>
-                </div>
-              </Col>
-              
-              <Col xs="4" style={{ textAlign: "right"}}>
-                <Button
-                  type="submit"
-                  style={{
-                    backgroundColor: "#073180",
-                    color: "#FFFFFF",
-                    padding: "6px 40px 6px 40px",
-                  }}
-                >
-                  Update
-                </Button>
-              </Col>
-            </Row>
-          </Form>
+          <Tabs
+            defaultActiveKey="home"
+            id="uncontrolled-tab-example"
+            className="mb-3"
+          >
+            <Tab eventKey="home" title="Home">
+              <Table striped bordered hover size="sm">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td colSpan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Tab>
+            <Tab eventKey="profile" title="Profile">
+              <h1>hai hal 2</h1>
+            </Tab>
+            <Tab eventKey="contact" title="Contact">
+              <h1>hai hal 3</h1>
+            </Tab>
+          </Tabs>
         </Container>
       </div>
     );
