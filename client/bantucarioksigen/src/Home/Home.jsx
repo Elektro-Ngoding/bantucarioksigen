@@ -1,7 +1,9 @@
 import React, { select } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Button, Row, Form, Col } from "react-bootstrap";
-import Card from "../component/Card";
+
+
+import CardComponent from "../component/CardComponent";
 export default class Home extends React.Component {
   render() {
     return (
@@ -10,7 +12,7 @@ export default class Home extends React.Component {
           fluid
           style={{
             backgroundColor: "#F1F3F0",
-            paddingTop: 70,
+            paddingTop: 100,
             paddingBottom: 30,
           }}
         >
@@ -22,7 +24,7 @@ export default class Home extends React.Component {
                 </div>
                 <div>
                   <select
-                    className="selectpicker"
+                    className="browser-default custom-select"
                     data-style="select-new"
                     data-live-search="true"
                     data-size={5}
@@ -76,7 +78,7 @@ export default class Home extends React.Component {
                 </div>
                 <div>
                   <select
-                    className="selectpicker"
+                    className="browser-default custom-select"
                     data-style="select-new"
                     data-live-search="true"
                     data-size={3}
@@ -90,28 +92,28 @@ export default class Home extends React.Component {
               </Col>
               <Col xs="auto">
                 <div className="my-4">
-                  <Button
-                    type="submit"
+                <div
+                    className="btn ml-1"
                     style={{
                       backgroundColor: "#073180",
                       color: "#FFFFFF",
-                      padding: "6px 40px 6px 40px",
+                      padding: "10px 30px 12px 30px",
                     }}
                   >
                     Cari
-                  </Button>
+                  </div>
                 </div>
               </Col>
             </Row>
           </Form>
         </Container>
         <br />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
       </div>
     );
   }

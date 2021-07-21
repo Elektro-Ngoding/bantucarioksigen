@@ -10,6 +10,7 @@ import {
   Table,
   Tabs,
 } from "react-bootstrap";
+import TableComponent from "../component/TableComponent";
 
 export class Admin extends Component {
   render() {
@@ -25,35 +26,15 @@ export class Admin extends Component {
             className="mb-3"
           >
             <Tab eventKey="home" title="Home">
-              <Table striped bordered hover size="sm">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td colSpan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </Table>
+              <Row>
+                <Col>
+                  <div className="btn btn-primary p-3">
+                    <i className="fa fa-plus" aria-hidden="true">  Tambah Data</i>
+                    
+                  </div>
+                </Col>
+              </Row>
+              <TableComponent />
             </Tab>
             <Tab eventKey="profile" title="Profile">
               <h1>hai hal 2</h1>

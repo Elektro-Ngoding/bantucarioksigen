@@ -7,7 +7,6 @@ import {
   Form,
   Row,
 } from "react-bootstrap";
-import { BsPencil } from "@react-icons/all-files/bs/BsPencil";
 
 export class Penjual extends Component {
   render() {
@@ -21,8 +20,17 @@ export class Penjual extends Component {
             <h1>
               <b>
                 Alkes Central Medica{" "}
-                <a href="http://">
-                  <BsPencil />
+                <a
+                  href="#"
+                  className="btn"
+                  style={{
+                    backgroundColor: "#073180",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  <i className="fa fa-edit" aria-hidden="true">
+                    {" "}
+                  </i>
                 </a>
               </b>
             </h1>
@@ -34,18 +42,20 @@ export class Penjual extends Component {
             </p>
           </Row>
           <Row style={{ marginBottom: 20, textAlign: "center" }}>
-            <span style={{ fontSize: 13, color: "grey" }}>Kontak Darurat : 0721703312</span>
+            <span style={{ fontSize: 13, color: "grey" }}>
+              Kontak Darurat : 0721703312
+            </span>
           </Row>
           <hr />
           <Form>
             <Row>
-              <Col xs="3">
+              <Col xs="4">
                 <h4>Status</h4>
               </Col>
               <Col xs="4" style={{ textAlign: "right" }}>
                 <div>
                   <select
-                    className="selectpicker"
+                    className="browser-default custom-select"
                     data-style="select-new"
                     data-live-search="true"
                     data-size={3}
@@ -59,14 +69,12 @@ export class Penjual extends Component {
                   </select>
                 </div>
               </Col>
-              <Col xs="4" style={{ textAlign: "right" }}>
-                <Button
-                  type="submit"
-                  style={{
-                    backgroundColor: "#073180",
-                    color: "#FFFFFF",
-                  }}
-                >
+              <Col
+                xs="4"
+                className="align-middle"
+                style={{ textAlign: "right" }}
+              >
+                <Button type="submit" className="btn p-2">
                   Update
                 </Button>
               </Col>
@@ -75,13 +83,13 @@ export class Penjual extends Component {
           <hr />
           <Form>
             <Row>
-              <Col xs="2">
+              <Col xs="3">
                 <h4>Stok</h4>
               </Col>
               <Col xs="5" style={{ textAlign: "right" }}>
                 <div>
                   <select
-                    className="selectpicker"
+                    className="browser-default custom-select"
                     data-style="select-new"
                     data-live-search="true"
                     data-size={3}
@@ -96,13 +104,7 @@ export class Penjual extends Component {
               </Col>
 
               <Col xs="4" style={{ textAlign: "right" }}>
-                <Button
-                  type="submit"
-                  style={{
-                    backgroundColor: "#073180",
-                    color: "#FFFFFF",
-                  }}
-                >
+                <Button type="submit" className="btn p-2">
                   Update
                 </Button>
               </Col>
@@ -111,13 +113,13 @@ export class Penjual extends Component {
           <hr />
           <Form>
             <Row>
-              <Col xs="3">
+              <Col xs="4">
                 <h4>Antrian</h4>
               </Col>
               <Col xs="4" style={{ textAlign: "right" }}>
                 <div>
                   <select
-                    className="selectpicker"
+                    className="browser-default custom-select"
                     data-style="select-new"
                     data-live-search="true"
                     data-size={3}
@@ -132,13 +134,7 @@ export class Penjual extends Component {
               </Col>
 
               <Col xs="4" style={{ textAlign: "right" }}>
-                <Button
-                  type="submit"
-                  style={{
-                    backgroundColor: "#073180",
-                    color: "#FFFFFF",
-                  }}
-                >
+                <Button type="submit" className="btn p-2">
                   Update
                 </Button>
               </Col>
