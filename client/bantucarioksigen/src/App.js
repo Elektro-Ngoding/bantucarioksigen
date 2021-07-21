@@ -1,6 +1,10 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar } from "react-bootstrap";
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
+
 import Home from "./Home/Home";
 import Login from "./Auth/Login";
 import Admin from "./Admin/Admin";
@@ -18,16 +22,16 @@ function App() {
       >
         <a className="navbar-brand" href="#">
           <span
-            className="badge badge-danger"
+            className="badge"
             style={{ fontSize: 25, backgroundColor: "#073180" }}
           >
             Bantu Cari Oksigen
           </span>
         </a>
       </Navbar>
-      <Home />
+      {/* <Home /> */}
       {/* <Login /> */}
-      {/* <Admin/> */}
+      <Admin/>
       {/* <Penjual/> */}
     </div>
   );
