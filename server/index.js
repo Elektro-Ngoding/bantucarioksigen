@@ -10,11 +10,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const dataOksigen = require("./app/routes/bantucarioksigen");
+const auth = require("./app/routes/auth/index");
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 app.use("/dataoksigen", dataOksigen);
+app.use("/auth", auth);
 
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
