@@ -6,7 +6,8 @@
   "author": "elektro-ngoding",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "test": "cross-env NODE_ENV=test jest — testTimeout=10000"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -18,5 +19,10 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.3",
     "nodemon": "^2.0.12"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^27.0.6",
+    "supertest": "^6.1.4"
   }
 }
