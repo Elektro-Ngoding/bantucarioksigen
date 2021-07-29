@@ -19,6 +19,15 @@ export default function Navbar() {
             Bantu Cari Oksigen
           </span>
         </a>
+         <MDBDropdown>
+            <MDBDropdownToggle backgroundColor="#073180">Menu</MDBDropdownToggle>
+            <MDBDropdownMenu>
+              <MDBDropdownItem href="Penjual">Penjual</MDBDropdownItem>
+              <MDBDropdownItem href="adminOksigen">admin Oksigen</MDBDropdownItem>
+              <MDBDropdownItem href="Auth">Login</MDBDropdownItem>
+            </MDBDropdownMenu>
+          </MDBDropdown>
+        
       </MDBNavbar>
     </div>
   );
