@@ -1,6 +1,19 @@
 import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
 
-export default function Card() {
+interface DataCard {
+  namaToko: string;
+  provinsi: string;
+  kota: string;
+  alamat: string;
+  kontak: number;
+  statusBuka: string;
+  stokBarang: string;
+  antrian: string;
+  waktuBuka: string;
+  updated_date: string;
+}
+
+export default function Card(props: DataCard) {
   return (
     <div>
       <MDBContainer>
@@ -15,14 +28,13 @@ export default function Card() {
                   <div className="row">
                     <div className="col-md-7">
                       <h5 className="mb-0" style={{ color: "#4D514D" }}>
-                        Alkes Central Medica
+                        {props.namaToko}
                       </h5>
                       <p
                         className="mb-0"
                         style={{ fontSize: 14, color: "#4D514D" }}
                       >
-                        Jl. Teuku Umar No.38B, Sidodadi, Kec. Kedaton, Kota
-                        Bandar Lampung, Lampung 35123
+                       {props.alamat}
                       </p>
                     </div>
                     <div className="col-md-5 text-right">
@@ -31,25 +43,25 @@ export default function Card() {
                         className="mt-0 mb-1"
                         style={{ fontSize: 13, color: "grey" }}
                       >
-                        Buka : 07:00 - 17:00
+                       Buka {props.waktuBuka}
                       </p>
                       <p
                         className="mb-0"
                         style={{ fontSize: 18, color: "#4D514D" }}
                       >
-                        <b>Stok Tersedia</b>
+                        <b>{props.stokBarang}</b>
                       </p>
                       <p
                         className="mb-0"
                         style={{ fontSize: 14, color: "#4D514D" }}
                       >
-                        tanpa antrian pembeli.{" "}
+                      {props.antrian}
                       </p>
                       <p
                         className="mb-0"
                         style={{ fontSize: 13, color: "grey" }}
                       >
-                        diupdate 2 menit yang lalu{" "}
+                       {props.updated_date}
                       </p>
                     </div>
                   </div>
@@ -71,10 +83,10 @@ export default function Card() {
                       &nbsp;
                     </i>
                     <span style={{ fontSize: 13, color: "grey" }}>
-                      0721703312
+                      {props.kontak}
                     </span>
                     <a
-                      href="https://yankes.kemkes.go.id/app/siranap/tempat_tidur?kode_rs=1801017&jenis=1&propinsi=18prop&kabkota=1871"
+                      href="#"
                       className="btn ml-1"
                       style={{
                         backgroundColor: "#073180",
