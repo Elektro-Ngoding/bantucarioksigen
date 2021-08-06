@@ -1,10 +1,17 @@
 import { MDBDataTable } from "mdbreact";
-const Table = () => {
+
+interface DataTableProps {
+dataTab: Array<any>
+}
+
+
+const Table = (props: DataTableProps) => {
+  const { dataTab } = props;
   const data = {
     columns: [
       {
         label: "Toko",
-        field: "name",
+        field: "namaToko",
         sort: "asc",
         width: 150,
       },
@@ -15,14 +22,20 @@ const Table = () => {
         width: 100
       },
       {
+        label: "Provinsi",
+        field: "provinsi",
+        sort: "asc",
+        width: 200,
+      },
+      {
         label: "Kota/Kab",
         field: "kota",
         sort: "asc",
         width: 200,
       },
       {
-        label: "Lokasi",
-        field: "lokasi",
+        label: "Alamat",
+        field: "alamat",
         sort: "asc",
         width: 150,
       },
@@ -34,7 +47,7 @@ const Table = () => {
       },
       {
         label: "Update date",
-        field: "date",
+        field: "updated_date",
         sort: "asc",
         width: 150,
       },
@@ -51,101 +64,36 @@ const Table = () => {
         width: 100,
       },
     ],
-    rows: [
-      {
-        name: "Prescott Bartlett",
-        status: "terverikasi",
-        kota: "Bandar Lampung",
-        lokasi: "Jl. Teuku Umar No.38B, Sidodadi, Kec. Kedaton, Kota Bandar Lampung, Lampung 35123",
-        kontak: "081328123123",
-        date: "2021/07/30",
-        update: (
-          <a href="#">
-            <div className="btn btn-success">Update</div>
-          </a>
-        ),
-        delete: (
-          <a href="#">
-            <div className="btn btn-danger">Delete</div>
-          </a>
-        ),
-      },
-      {
-        name: "Prescott Bartlett",
-        status: "terverikasi",
-        kota: "Bandar Lampung",
-        lokasi: "Jl. Teuku Umar No.38B, Sidodadi, Kec. Kedaton, Kota Bandar Lampung, Lampung 35123",
-        kontak: "081328123123",
-        date: "2021/07/30",
-        update: (
-          <a href="#">
-            <div className="btn btn-success">Update</div>
-          </a>
-        ),
-        delete: (
-          <a href="#">
-            <div className="btn btn-danger">Delete</div>
-          </a>
-        ),
-      },
-      {
-        name: "Prescott Bartlett",
-        status: "terverikasi",
-        kota: "Bandar Lampung",
-        lokasi: "Jl. Teuku Umar No.38B, Sidodadi, Kec. Kedaton, Kota Bandar Lampung, Lampung 35123",
-        kontak: "081328123123",
-        date: "2021/07/30",
-        update: (
-          <a href="#">
-            <div className="btn btn-success">Update</div>
-          </a>
-        ),
-        delete: (
-          <a href="#">
-            <div className="btn btn-danger">Delete</div>
-          </a>
-        ),
-      },
-      {
-        name: "Prescott Bartlett",
-        status: "terverikasi",
-        kota: "Bandar Lampung",
-        lokasi: "Jl. Teuku Umar No.38B, Sidodadi, Kec. Kedaton, Kota Bandar Lampung, Lampung 35123",
-        kontak: "081328123123",
-        date: "2021/07/30",
-        update: (
-          <a href="#">
-            <div className="btn btn-success">Update</div>
-          </a>
-        ),
-        delete: (
-          <a href="#">
-            <div className="btn btn-danger">Delete</div>
-          </a>
-        ),
-      },
-      {
-        name: "Prescott Bartlett",
-        status: "terverikasi",
-        kota: "Bandar Lampung",
-        lokasi: "Jl. Teuku Umar No.38B, Sidodadi, Kec. Kedaton, Kota Bandar Lampung, Lampung 35123",
-        kontak: "081328123123",
-        date: "2021/07/30",
-        update: (
-          <a href="#">
-            <div className="btn btn-success">Update</div>
-          </a>
-        ),
-        delete: (
-          <a href="#">
-            <div className="btn btn-danger">Delete</div>
-          </a>
-        ),
-      },
-    ],
+    rows : dataTab.map(data => {
+      return {
+          namaToko: data.namaToko,
+
+          status: data.status,
+          provinsi: data.data.provinsi,
+          kota: data.data.kota,
+          alamat: data.data.alamat,
+          kontak: data.data.kontak,
+          updated_date: data.data.updated_date,
+          update: (
+            <a href="#">
+              <div className="btn btn-success">Update</div>
+            </a>
+          ),
+          delete: (
+            <a href="#">
+              <div className="btn btn-danger">Delete</div>
+            </a>
+          ),
+      }
+    })
   };
 
-  return <MDBDataTable responsive striped bordered small data={data} />;
+  return (
+    <>
+    <MDBDataTable responsive striped bordered small data={data} />;
+    </>
+  )
+
 };
 
 export default Table;
