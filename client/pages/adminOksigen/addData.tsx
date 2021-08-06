@@ -7,7 +7,7 @@ import {
     MDBRow
 } from "mdbreact";
 import Layout from "../../component/Layout/Layout";
-import Province from "../../component/Province";
+import Address from "../../component/Address/index";
 export default function addData() {
   return (
     <>
@@ -16,7 +16,7 @@ export default function addData() {
           <MDBRow fluid center>
              
             <MDBCol md="8">
-              <form>
+              <form method="post" action="">
                 <p className="h5 text-center mb-4">Tambahkan Mitra Oksigen</p>
                 <div className="grey-text">
                   <MDBInput
@@ -30,16 +30,17 @@ export default function addData() {
                   />
                   <MDBInput
                     label="Username"
-                    icon="envelope"
+                    icon="tag"
                     group
-                    type="email"
+                    type="text"
                     validate
                     error="wrong"
                     success="right"
                   />
-                   <Province/>
+                   <Address/>
+
                   <MDBInput
-                    label="Subject"
+                    label="Alamat"
                     icon="tag"
                     group
                     type="text"
@@ -48,7 +49,7 @@ export default function addData() {
                     success="right"
                   />
                   <MDBInput
-                    label="Subject"
+                    label="Kontak"
                     icon="tag"
                     group
                     type="text"
@@ -58,7 +59,7 @@ export default function addData() {
                   />
                 </div>
                 <div className="text-center">
-                  <MDBBtn outline color="secondary">
+                  <MDBBtn type="submit" outline color="primary">
                     Add Data
                     <MDBIcon far icon="paper-plane" className="ml-1" />
                   </MDBBtn>
