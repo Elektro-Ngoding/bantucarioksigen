@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const Joi = require("joi");
 
 const registerValidation = (data) => {
   const schema = Joi.object({
@@ -8,21 +8,21 @@ const registerValidation = (data) => {
       .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))
       .min(8)
       .required(),
-    role: Joi.string().required()
+    role: Joi.string().required(),
   });
-  return schema.validate(data)
+  return schema.validate(data);
 };
 
 const loginValidate = (data) => {
-    const schema = Joi.object({
-        username: Joi.string().required(),
-        password: Joi.string()
-            .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))
-            .required()
-    })
+  const schema = Joi.object({
+    username: Joi.string().required(),
+    password: Joi.string()
+      .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))
+      .required(),
+  });
 
-    return schema.validate(data);
-}
+  return schema.validate(data);
+};
 
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidate = loginValidate;

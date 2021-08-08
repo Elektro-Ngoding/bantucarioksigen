@@ -13,7 +13,7 @@ const dataOksigen = require("./app/routes/bantucarioksigen");
 const auth = require("./app/routes/auth/index");
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("bantucari oksigen");
 });
 app.use("/dataoksigen", dataOksigen);
 app.use("/auth", auth);

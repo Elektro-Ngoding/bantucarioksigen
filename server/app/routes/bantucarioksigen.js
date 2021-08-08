@@ -26,7 +26,10 @@ router.post("/", async (req, res) => {
 
   try {
     const dataOksigenPost = await dataOksigen.save();
-    res.json(dataOksigenPost);
+    res.json({
+      status: 400,
+      message: "success add mitra"
+    });
   } catch (error) {
     res.json({
       message: error,
@@ -67,9 +70,13 @@ router.put("/:id", async (req, res) => {
         waktuBuka: req.body.data.waktuBuka,
       },
     });
-    res.json(dataOksigenUpdate);
+    res.json({
+      status: 400,
+      message: "success update"
+    });
   } catch (error) {
     res.json({
+      status: 500,
       message: error,
     });
   }
@@ -80,7 +87,10 @@ router.delete("/:id", async (req, res) => {
     const dataOksigenDelete = await OksigenModel.deleteOne({
       _id: req.params.id,
     });
-    res.json("delete succes");
+    res.json({
+      status: 400,
+      message: "delete success"
+    });
   } catch (error) {
     res.json({
       message: error,
