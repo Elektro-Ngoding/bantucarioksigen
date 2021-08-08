@@ -18,6 +18,7 @@ class Province extends React.Component {
             <option
               key={prov.id}
               value={prov.id}
+              name="province"
               selected={this.props.selectedId === prov.id}
             >
               {prov.name}
@@ -46,6 +47,7 @@ class City extends React.Component {
             <option
               key={city.id}
               value={city.id}
+              name="city"
               selected={this.props.selectedId === city.id}
             >
               {city.name}
