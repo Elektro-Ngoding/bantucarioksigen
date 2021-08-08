@@ -3,7 +3,6 @@ import { MDBNavbar } from "mdbreact";
 
 export default function Navbar() {
   return (
-    <div>
       <MDBNavbar
         className="navbar fixed-top navbar-light mb-5"
         style={{
@@ -19,7 +18,7 @@ export default function Navbar() {
             Bantu Cari Oksigen
           </span>
         </a>
-         <MDBDropdown>
+         {/* <MDBDropdown>
             <MDBDropdownToggle backgroundColor="#073180">Menu</MDBDropdownToggle>
             <MDBDropdownMenu>
               <MDBDropdownItem href="Penjual">Penjual</MDBDropdownItem>
@@ -27,8 +26,7 @@ export default function Navbar() {
               <MDBDropdownItem href="Auth">Login</MDBDropdownItem>
             </MDBDropdownMenu>
           </MDBDropdown>
-        
+         */}
       </MDBNavbar>
-    </div>
   );
 }

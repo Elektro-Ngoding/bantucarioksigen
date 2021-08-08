@@ -11,7 +11,6 @@ interface DataProps {
 export default function Home(props: DataProps) {
   const { dataCard } = props;
   return (
-    <>
       <Layout>
         <MDBContainer
           fluid
@@ -25,7 +24,7 @@ export default function Home(props: DataProps) {
           <form action="" method="get">
             <MDBRow center>
               <MDBCol size="auto">
-               <Address/>
+                <Address />
               </MDBCol>
               <MDBCol size="auto">
                 <div className="mt-4">
@@ -64,7 +63,6 @@ export default function Home(props: DataProps) {
           );
         })}
       </Layout>
-    </>
   );
 }
 

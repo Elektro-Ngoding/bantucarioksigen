@@ -3,7 +3,7 @@ import Layout from "../../component/Layout/Layout";
 
 export default function Penjual() {
   return (
-    <div>
+    <>
       <Layout>
         <MDBContainer
           size="md"
@@ -131,6 +131,6 @@ export default function Penjual() {
           </form>
         </MDBContainer>
       </Layout>
-    </div>
+    </>
   );
 }

@@ -9,11 +9,10 @@ interface DataProps {
 export default function Admin(props: DataProps) {
   const { dataTable } = props;
   return (
-    <div>
       <Layout>
         <MDBContainer
           fluid
-          center
+          center="true"
           style={{
             backgroundColor: "#F1F3F0",
             paddingTop: 100,
@@ -42,7 +41,6 @@ export default function Admin(props: DataProps) {
           </MDBRow>
         </MDBContainer>
       </Layout>
-    </div>
   );
 }
 

@@ -3,7 +3,7 @@ import Layout from "../../component/Layout/Layout";
 
 export default function login() {
   return (
-    <div>
+    <>
       <Layout>
         <MDBContainer
           style={{ marginTop: 100, backgroundColor: "#F1F3F0", padding: 50 }}
@@ -38,6 +38,6 @@ export default function login() {
           </MDBRow>
         </MDBContainer>
       </Layout>
-    </div>
+    </>
   );
 }
