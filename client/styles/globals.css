@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .container-top {
   align-items: center;
     background-color: "F1F3F0";
