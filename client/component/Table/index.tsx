@@ -164,7 +164,7 @@ const Table = (props: DataTableProps) => {
                 </div>
 
                 <div className="flex items-start justify-between p-4 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">Modal {namaToko}</h3>
+                  <h3 className="text-3xl font-semibold">Update Data Mitra {namaToko}</h3>
                 </div>
                 {/*body*/}
                 <Modal
