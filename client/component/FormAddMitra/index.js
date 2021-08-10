@@ -4,13 +4,11 @@ import {
   MDBContainer,
   MDBIcon,
   MDBInput,
-  MDBRow,
+  MDBRow
 } from "mdbreact";
 import React from "react";
 import data from "../../data/dataProv";
 import { addMitra } from "../../lib/addMitra";
-import { useRouter } from "next/router";
-import next from "next";
 
 class FormAddMitra extends React.Component {
   constructor(props) {
