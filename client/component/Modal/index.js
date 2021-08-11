@@ -12,11 +12,15 @@ export default class Modal extends React.Component {
       cities: data.cities,
       _id: this.props._id,
       namaToko: this.props.namaToko,
-      username: this.props.username,
+      status: this.props.status,
       provinsi: this.props.provinsi,
       kota: this.props.kota,
       alamat: this.props.alamat,
       kontak: this.props.kontak,
+      statusBuka: this.props.statusBuka,
+      stokBarang: this.props.stokBarang,
+      antrian: this.props.antrian,
+      waktuBuka: this.props.waktuBuka,
     };
   }
 
@@ -41,10 +45,33 @@ export default class Modal extends React.Component {
   };
 
   handleSubmit = (event) => {
-    const { _id, namaToko, username, provinsi, kota, alamat, kontak } =
-      this.state;
+    const {
+      _id,
+      namaToko,
+      status,
+      provinsi,
+      kota,
+      alamat,
+      kontak,
+      statusBuka,
+      stokBarang,
+      antrian,
+      waktuBuka,
+    } = this.state;
     event.preventDefault();
-    updateMitra(_id, namaToko, username, provinsi, kota, alamat, kontak);
+    updateMitra(
+      _id,
+      namaToko,
+      status,
+      provinsi,
+      kota,
+      alamat,
+      kontak,
+      statusBuka,
+      stokBarang,
+      antrian,
+      waktuBuka
+    );
   };
   render() {
     return (
@@ -64,18 +91,6 @@ export default class Modal extends React.Component {
                   success="right"
                   valueDefault={this.props.namaToko}
                   defaultValue={this.props.namaToko}
-                  onChange={this.handleChange}
-                />
-                <MDBInput
-                  label="Username"
-                  name="username"
-                  icon="envelope"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                  valueDefault={this.props.username}
                   onChange={this.handleChange}
                 />
                 <Province

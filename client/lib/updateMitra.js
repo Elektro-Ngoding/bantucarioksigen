@@ -3,35 +3,38 @@ import Router from "next/router";
 export const updateMitra = async (
   _id,
   namaToko,
-  username,
+  status,
   provinsi,
   kota,
   alamat,
   kontak,
+  statusBuka,
+  stokBarang,
+  antrian,
+  waktuBuka,
 ) => {
-    const { data } = await axios.put(`http://localhost:3006/dataoksigen/${_id}`, {
-      namaToko,
-      username,
-      status: "terverivikasi",
-      password: "123",
-      data: {
-        provinsi,
-        kota,
-        alamat,
-        kontak,
-      },
-    });
-    try {
-        const validation = data.message.message;
-        if(!validation){
-           if(data.status === 400){
-               Router.reload();
-           }
-        }else{
-            alert(validation);
-        }
-    } catch (error) {
-       
+  const { data } = await axios.put(`http://localhost:3006/dataoksigen/${_id}`, {
+    namaToko,
+    status,
+    data: {
+      provinsi,
+      kota,
+      alamat,
+      kontak,
+      statusBuka,
+      stokBarang,
+      antrian,
+      waktuBuka,
+    },
+  });
+  try {
+    const validation = data.message.message;
+    if(!validation){
+       if(data.status === 200){
+           Router.reload();
+       }
+    }else{
+        alert(validation);
     }
-    
+  } catch (error) {}
 };

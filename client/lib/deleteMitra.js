@@ -5,7 +5,7 @@ export const deleteMitra = async (id) => {
     `http://localhost:3006/dataoksigen/${id}`
   );
   try {
-      if (data.status === 400) {
+      if (data.status === 200) {
         Router.reload();
     }
   } catch (error) {

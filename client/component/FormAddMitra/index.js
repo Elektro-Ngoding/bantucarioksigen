@@ -140,6 +140,7 @@ class Province extends React.Component {
         <select
           className="browser-default custom-select"
           onChange={this.onSelect}
+          defaultValue="no data"
         >
           <option>Select province</option>
           {this.props.data.map((prov) => (
@@ -169,6 +170,7 @@ class City extends React.Component {
         <select
           className="browser-default custom-select"
           onClick={this.onSelect}
+          defaultValue="no data"
         >
           <option>Select city</option>
           {this.props.data.map((city) => (

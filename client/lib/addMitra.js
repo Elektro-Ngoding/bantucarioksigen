@@ -1,5 +1,7 @@
 import axios from "axios";
 import Router from "next/router";
+import { v4 as uuidv4 } from 'uuid';
+import { data } from "../data/dataProv";
 export const addMitra = async (
   namaToko,
   username,
@@ -8,30 +10,40 @@ export const addMitra = async (
   alamat,
   kontak,
 ) => {
+  const idMitra = uuidv4();
+  const dataAuth = await axios.post("http://localhost:3006/auth/register",{
+    id_mitra: idMitra,  
+    username,
+    password: "bantucarioksigen",
+    role: "mitra",
+    verify: "belum terverivikasi"
+    });
     const { data } = await axios.post("http://localhost:3006/dataoksigen", {
+      _id: idMitra,
       namaToko,
-      username,
       status: "belum terverivikasi",
-      password: "123",
       data: {
         provinsi,
         kota,
         alamat,
         kontak,
+        statusBuka: "Menuggu tehubung dengan mitra",
+        stokBarang: "Menuggu tehubung dengan mitra",
+        antrian: "Menuggu tehubung dengan mitra",
+        waktuBuka: "Menuggu tehubung dengan mitra",
       },
     });
     try {
         const validation = data.message.message;
         if(!validation){
-           if(data.status === 400){
+           if(data.status === 200 && dataAuth.status){
                Router.push('/adminOksigen');
            }
         }else{
-            console.log("masih ada yang error")
             alert(validation);
         }
     } catch (error) {
-       
+       console.log(error)
     }
     
 };
