@@ -2,13 +2,14 @@ const Joi = require("joi");
 
 const registerValidation = (data) => {
   const schema = Joi.object({
+    id_mitra: Joi.string(),
     username: Joi.string().required(),
-    email: Joi.string().email().required(),
     password: Joi.string()
       .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))
       .min(8)
       .required(),
     role: Joi.string().required(),
+    verify: Joi.string().required()
   });
   return schema.validate(data);
 };

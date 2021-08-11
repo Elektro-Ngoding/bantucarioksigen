@@ -4,14 +4,10 @@ const OksigenModel = require("../models/OksigenModel");
 const bcrypt = require("bcrypt");
 
 router.post("/", async (req, res) => {
-  const salt = await bcrypt.genSalt(10);
-  const hashPassword = await bcrypt.hash(req.body.password, salt);
-
   const dataOksigen = new OksigenModel({
+    _id: req.body._id,
     namaToko: req.body.namaToko,
     status: req.body.status,
-    username: req.body.username,
-    password: hashPassword,
     data: {
       provinsi: req.body.data.provinsi,
       kota: req.body.data.kota,
@@ -27,8 +23,8 @@ router.post("/", async (req, res) => {
   try {
     const dataOksigenPost = await dataOksigen.save();
     res.json({
-      status: 400,
-      message: "success add mitra"
+      status: 200,
+      message: "success add mitra",
     });
   } catch (error) {
     res.json({
@@ -49,16 +45,10 @@ router.get("/", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-
   try {
-    const salt = await bcrypt.genSalt(10);
-    const hashPassword = await bcrypt.hash(req.body.password, salt);
-    
     const dataOksigenUpdate = await OksigenModel.updateOne({
       namaToko: req.body.namaToko,
       status: req.body.status,
-      username: req.body.username,
-      password: hashPassword,
       data: {
         provinsi: req.body.data.provinsi,
         kota: req.body.data.kota,
@@ -71,25 +61,23 @@ router.put("/:id", async (req, res) => {
       },
     });
     res.json({
-      status: 400,
-      message: "success update"
+      status: 200,
+      message: dataOksigenUpdate
     });
   } catch (error) {
     res.json({
-      status: 500,
       message: error,
     });
   }
 });
-
 router.delete("/:id", async (req, res) => {
   try {
     const dataOksigenDelete = await OksigenModel.deleteOne({
       _id: req.params.id,
     });
     res.json({
-      status: 400,
-      message: "delete success"
+      status: 200,
+      message: dataOksigenDelete,
     });
   } catch (error) {
     res.json({

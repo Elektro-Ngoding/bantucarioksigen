@@ -21,10 +21,11 @@ router.post("/register", async (req, res) => {
 
   try {
     const dataAdminRegister = new AdminModel({
+      id_mitra: req.body.id_mitra,
       username: req.body.username,
-      email: req.body.email,
       password: hashPassword,
       role: req.body.role,
+      verify: req.body.verify
     });
 
     try {

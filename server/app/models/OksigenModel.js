@@ -6,6 +6,10 @@ mongoose.connect(
 );
 
 const OksigenSchema = mongoose.Schema({
+ _id: {
+   type: String,
+   required: true
+ },
   namaToko: {
     type: String,
     required: true,
@@ -13,16 +17,6 @@ const OksigenSchema = mongoose.Schema({
   status: {
     type: String,
     required: true,
-  },
-  username: {
-    type: String,
-    required: true,
-  },
-  password: {
-    type: String,
-    require: true,
-    min: 8,
-    max: 1024,
   },
   data: {
     provinsi: {
@@ -64,4 +58,4 @@ const OksigenSchema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Oksigen", OksigenSchema);
+module.exports = mongoose.model("oksigen", OksigenSchema);
