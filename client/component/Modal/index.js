@@ -21,6 +21,7 @@ export default class Modal extends React.Component {
       stokBarang: this.props.stokBarang,
       antrian: this.props.antrian,
       waktuBuka: this.props.waktuBuka,
+      waktuTutup: this.props.waktuTutup,
     };
   }
 
@@ -57,6 +58,7 @@ export default class Modal extends React.Component {
       stokBarang,
       antrian,
       waktuBuka,
+      waktuTutup,
     } = this.state;
     event.preventDefault();
     updateMitra(
@@ -70,8 +72,10 @@ export default class Modal extends React.Component {
       statusBuka,
       stokBarang,
       antrian,
-      waktuBuka
+      waktuBuka,
+      waktuTutup
     );
+    this.props.handleCloseModal();
   };
   render() {
     return (
@@ -93,6 +97,35 @@ export default class Modal extends React.Component {
                   defaultValue={this.props.namaToko}
                   onChange={this.handleChange}
                 />
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <MDBInput
+                      label="Waktu Buka"
+                      name="waktuBuka"
+                      icon="tag"
+                      group
+                      type="time"
+                      validate
+                      error="wrong"
+                      success="right"
+                      valueDefault={this.props.waktuBuka}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <MDBInput
+                      label="Waktu Tutup"
+                      name="waktuTutup"
+                      group
+                      type="time"
+                      validate
+                      error="wrong"
+                      success="right"
+                      valueDefault={this.props.waktuTutup}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
                 <Province
                   data={this.state.provinces}
                   selectedId={this.state.provinceId}
@@ -129,10 +162,18 @@ export default class Modal extends React.Component {
                   valueDefault={this.props.kontak}
                   onChange={this.handleChange}
                 />
-                <div className="mb-5 border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                <div class="flex flex-row items-center justify-between p-5 bg-white border-t border-gray-200 rounded-bl-lg rounded-br-lg">
+                  <p
+                    onClick={() => {
+                      this.props.handleCloseModal();
+                    }}
+                    class="font-semibold text-gray-600 hover:text-red-500 rounded"
+                  >
+                    Cancel
+                  </p>
                   <button
-                    className="text-white bg-green-500 active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="submit"
+                    class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
                   >
                     Update Data
                   </button>
