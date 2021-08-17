@@ -3824,6 +3824,11 @@ react-toastify@5.5.0:
     prop-types "^15.7.2"
     react-transition-group "^4"
 
+react-token-auth@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/react-token-auth/-/react-token-auth-1.1.8.tgz#5b88c251f7751ad05f6ea89208170df076f3362f"
+  integrity sha512-stS7VbLu57qTC4H2R0Cd7nxuhXeQ2oR3oanXf+sX46BTq6N3ecKfmgTDnfJ0ce+QNX4tWUSbgqMzEPDbkmp7KA==
+
 react-transition-group@4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.3.0.tgz#fea832e386cf8796c58b61874a3319704f5ce683"
@@ -3853,6 +3858,11 @@ react-transition-group@^4:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-use-localstorage@^3.5.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/react-use-localstorage/-/react-use-localstorage-3.5.3.tgz#c4bcc097859a2d2879e969f0a57b16345905df82"
+  integrity sha512-1oNvJmo72G4v5P9ytJZZTb6ywD3UzWBiainTtfbNlb+U08hc+SOD5HqgiLTKUF0MxGcIR9JSnZGmBttNLXaQYA==
 
 react@17.0.1:
   version "17.0.1"
