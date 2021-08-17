@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const OksigenModel = require("../models/OksigenModel");
 const bcrypt = require("bcrypt");
+const verifyToken = require("../configs/verifyToken");
 
 router.post("/", async (req, res) => {
   const dataOksigen = new OksigenModel({
@@ -17,6 +18,7 @@ router.post("/", async (req, res) => {
       stokBarang: req.body.data.stokBarang,
       antrian: req.body.data.antrian,
       waktuBuka: req.body.data.waktuBuka,
+      waktuTutup: req.body.data.waktuTutup,
     },
   });
 
@@ -58,11 +60,12 @@ router.put("/:id", async (req, res) => {
         stokBarang: req.body.data.stokBarang,
         antrian: req.body.data.antrian,
         waktuBuka: req.body.data.waktuBuka,
+        waktuTutup: req.body.data.waktuTutup,
       },
     });
     res.json({
       status: 200,
-      message: dataOksigenUpdate
+      message: dataOksigenUpdate,
     });
   } catch (error) {
     res.json({
@@ -70,7 +73,7 @@ router.put("/:id", async (req, res) => {
     });
   }
 });
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", verifyToken, async (req, res) => {
   try {
     const dataOksigenDelete = await OksigenModel.deleteOne({
       _id: req.params.id,
@@ -98,18 +101,14 @@ router.get("/:id", async (req, res) => {
     });
   }
 });
-
-router.get("/cari", async (req, res) => {
+router.get("/testAuth", async (req, res) => {
   try {
-    const dataOksigenDetail = await OksigenModel.findOne({
-      username: "grahaoksigen",
-    });
-    res.json(dataOksigenDetail);
+    const dataOksigenGet = await OksigenModel.find();
+    res.json(dataOksigenGet);
   } catch (error) {
     res.json({
       message: error,
     });
   }
 });
-
 module.exports = router;

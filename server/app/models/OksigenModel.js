@@ -47,6 +47,9 @@ const OksigenSchema = mongoose.Schema({
     waktuBuka: {
       type: String,
     },
+    waktuTutup: {
+      type: String,
+    },
     created_date: {
       type: Date,
       default: Date.now,
