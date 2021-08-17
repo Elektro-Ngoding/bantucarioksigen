@@ -1,6 +1,5 @@
-import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
+import { useEffect, useState } from "react";
 import Address from "../component/Address";
-
 import Card from "../component/Card";
 import Layout from "../component/Layout/Layout";
 
@@ -10,64 +9,73 @@ interface DataProps {
 
 export default function Home(props: DataProps) {
   const { dataCard } = props;
+
+  const [dataSeacrh, setDataSeacrh] = useState<boolean>();
+  const [filteredData, setFilteredData] = useState(dataCard);
+  useEffect(() => {
+    setFilteredData(dataCard);
+  }, []);
+
+  const handleSearch = (data: string) => {
+    if (data !== "") {
+      const results = dataCard.filter((res) => {
+        return res.data.kota.toLowerCase().startsWith(data.toLowerCase());
+      });
+      setFilteredData(results);
+    } else {
+      setFilteredData([]);
+    }
+  };
+
   return (
-      <Layout>
-        <MDBContainer
-          fluid
-          center
-          style={{
-            backgroundColor: "#F1F3F0",
-            paddingTop: 100,
-            paddingBottom: 30,
-          }}
-        >
-          <form action="" method="get">
-            <MDBRow center>
-              <MDBCol size="auto">
-                <Address />
-              </MDBCol>
-              <MDBCol size="auto">
-                <div className="mt-4">
-                  <div
-                    className="btn ml-1"
-                    style={{
-                      backgroundColor: "#073180",
-                      color: "#FFFFFF",
-                      padding: "10px 30px 12px 30px",
-                    }}
-                  >
-                    Cari
-                  </div>
-                </div>
-              </MDBCol>
-            </MDBRow>
-          </form>
-        </MDBContainer>
-        <br />
-        {dataCard.map((card: any) => {
-          return (
+    <Layout>
+      <section className="flex flex-col flex-1 py-16">
+        <div className="w-full sm:max-w-xl mx-auto pt-4 px-4">
+          <div className="w-full sm:max-w-xl mx-auto pb-8 space-y-4">
+            <form>
+              <Address handleSearch={(data: string) => handleSearch(data)} />
+            </form>
+            {/* </MDBContainer> */}
+          </div>
+          {filteredData.length === 0 ? (
+            <div className="px-4 pt-4  mb-2 sm:px-6 relative bg-gray-50 rounded">
+              <div className="px-4 pt-4 pb-2 sm:px-6 relative hover:bg-gray-50">
+                <h1 className="animate-bounce text-gray-300">Data Not Found</h1>
+              </div>
+            </div>
+          ) : (
             <>
-              <Card
-                namaToko={card.namaToko}
-                provinsi={card.data.provinsi}
-                kota={card.data.kota}
-                alamat={card.data.alamat}
-                kontak={card.data.kontak}
-                statusBuka={card.data.statusBuka}
-                stokBarang={card.data.stokBarang}
-                antrian={card.data.antrian}
-                waktuBuka={card.data.waktuBuka}
-                updated_date={card.data.updated_date}
-              />
+              {filteredData.map((card: any) => {
+                return (
+                  <>
+                    <Card
+                      _id={card._id}
+                      namaToko={card.namaToko}
+                      status={card.status}
+                      provinsi={card.data.provinsi}
+                      kota={card.data.kota}
+                      alamat={card.data.alamat}
+                      kontak={card.data.kontak}
+                      statusBuka={card.data.statusBuka}
+                      stokBarang={card.data.stokBarang}
+                      antrian={card.data.antrian}
+                      waktuBuka={card.data.waktuBuka}
+                      waktuTutup={card.data.waktuTutup}
+                      updated_date={card.data.updated_date}
+                    />
+                  </>
+                );
+              })}
             </>
-          );
-        })}
-      </Layout>
+          )}
+        </div>
+      </section>
+    </Layout>
   );
 }
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3006/dataoksigen");
+  const res = await fetch("http://localhost:3006/dataoksigen/");
   const dataCard = await res.json();
 
   return {
