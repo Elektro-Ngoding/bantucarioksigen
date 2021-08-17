@@ -12,6 +12,7 @@ export const updateMitra = async (
   stokBarang,
   antrian,
   waktuBuka,
+  waktuTutup
 ) => {
   const { data } = await axios.put(`http://localhost:3006/dataoksigen/${_id}`, {
     namaToko,
@@ -25,13 +26,14 @@ export const updateMitra = async (
       stokBarang,
       antrian,
       waktuBuka,
+      waktuTutup
     },
   });
   try {
     const validation = data.message.message;
     if(!validation){
        if(data.status === 200){
-           Router.reload();
+           Router.push("/adminOksigen");
        }
     }else{
         alert(validation);
