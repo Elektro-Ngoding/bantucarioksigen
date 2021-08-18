@@ -1,6 +1,7 @@
+import  Router  from "next/router";
+import { useEffect, useState } from "react";
 import Card from "../component/Card";
 import Layout from "../component/Layout/Layout";
-import { useState, useEffect } from "react";
 
 interface DataProps {
   dataCard: Array<any>;
@@ -8,20 +9,24 @@ interface DataProps {
 
 export default function bookmark(props: DataProps) {
   const { dataCard } = props;
-  const [dataSaved, setDataSaved] = useState([]);
   const [filteredData, setFilteredData] = useState(dataCard);
+  const handleRefreshBookmark = () => {
+     Router.reload()
+  }
   useEffect(() => {
     const getData = JSON.parse(localStorage.getItem("bookMark") || "{}");
-      if (getData) {
+    if (getData.length == 0) {
+      setFilteredData([]);
+    } else if (getData.length > 0) {
       const results = dataCard.filter((res) => {
-        return res._id.toLowerCase().startsWith(getData);
+        return getData.includes(res._id);
       });
       setFilteredData(results);
-    } else {
-      console.log("array gaada isi");
+    }else{
+      setFilteredData([]);
     }
   }, []);
- 
+
   return (
     <Layout>
       <section className="flex flex-col flex-1 py-16">
@@ -56,6 +61,8 @@ export default function bookmark(props: DataProps) {
                       waktuBuka={card.data.waktuBuka}
                       waktuTutup={card.data.waktuTutup}
                       updated_date={card.data.updated_date}
+                      save={true}
+                      handleRefreshBookmark={() => handleRefreshBookmark()}
                     />
                   </>
                 );
