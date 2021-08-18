@@ -1,4 +1,3 @@
-import { MDBNavbar } from "mdbreact";
 import Router from "next/router";
 import { useEffect, useState } from "react";
 import { removeUserSession } from "../../lib/withSession";
@@ -35,10 +34,7 @@ export default function Navbar() {
             </a>
           </div>
           <div className="p-2 space-y-1 flex-1">
-            <select
-              className="browser-default custom-select"
-              // onChange={this.onSelect}
-            >
+            <select className="browser-default custom-select">
               <option>Oksigen</option>
               <option>Vaksin</option>
             </select>
