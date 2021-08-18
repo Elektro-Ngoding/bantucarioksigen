@@ -21,6 +21,7 @@ export default class Modal extends React.Component {
       cities: selCities,
       provinsi: nameProv[0].name,
     });
+    this.props.handleLoad();
   };
 
   onSelectCity = (city) => {
@@ -100,7 +101,7 @@ class City extends React.Component {
           className="browser-default custom-select"
           onClick={this.onSelect}
         >
-          <option selected disabled>
+          <option selected>
             Pilih Kota
           </option>
           {this.props.data.map((city) => (
