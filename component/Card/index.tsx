@@ -1,6 +1,6 @@
-import { useState, Dispatch, SetStateAction, } from "react";
+import { useEffect, useState } from "react";
+import Router from "next/router";
 import Moment from "react-moment";
-import useLocalStorage from "react-use-localstorage";
 interface DataCard {
   _id: any;
   namaToko: string;
@@ -15,13 +15,32 @@ interface DataCard {
   waktuBuka: string;
   waktuTutup: string;
   updated_date: string;
+  save: boolean;
+  handleRefreshBookmark: any;
 }
 
 export default function Card<T>(props: DataCard) {
   const [kontakTersalin, setKontakTersalin] = useState<boolean>(false);
   const [alamatTersalin, setAlamatTersalin] = useState<boolean>(false);
-  const [save, setSave] = useState<boolean>(false);
-  const [bookMark, setBookMark] = useState([0]);
+  const [save, setSave] = useState<boolean>(false || props.save);
+
+  useEffect(() => {
+    const getData = JSON.parse(localStorage.getItem("bookMark") || "{}");
+    if (Router.pathname == "/bookmark") {
+      setSave(true);
+    } else {
+      if (getData.length == 0) {
+        setSave(false);
+      } else if (getData.length > 0) {
+        const results = getData.filter(() => {
+          const res = getData.includes(props._id);
+          setSave(res);
+        });
+      } else {
+        setSave(false);
+      }
+    }
+  }, []);
 
   const handleCopyKontak = () => {
     navigator.clipboard.writeText(`${props.kontak}`);
@@ -39,27 +58,29 @@ export default function Card<T>(props: DataCard) {
   };
   const handleSave = (newData: any) => {
     setSave(true);
-
-    const getData = JSON.parse(localStorage.getItem("bookMark") || '{}');
+    const getData = JSON.parse(localStorage.getItem("bookMark") || "{}");
     if (getData === null) {
       localStorage.setItem("bookMark", JSON.stringify([newData]));
     } else {
       if (getData.length > 0) {
-        const putData = getData[getData.length] = newData;
+        const putData = (getData[getData.length] = newData);
         const alldata = getData;
         localStorage.setItem("bookMark", JSON.stringify(alldata));
-      }else{
+      } else {
         localStorage.setItem("bookMark", JSON.stringify([newData]));
       }
     }
   };
   const handleUnSave = (dataID: any) => {
     const dataGet = localStorage.getItem("bookMark");
-    const dataParse = JSON.parse(dataGet || '{}');
-    const result = dataParse.indexOf(dataID); 
-    const remove = dataParse.splice(result, 1)
+    const dataParse = JSON.parse(dataGet || "{}");
+    const result = dataParse.indexOf(dataID);
+    const remove = dataParse.splice(result, 1);
     localStorage.setItem("bookMark", JSON.stringify(dataParse));
     setSave(false);
+    {
+      Router.pathname == "/" ? null : props.handleRefreshBookmark();
+    }
   };
   return (
     <div className="px-4 pt-4  mb-2 sm:px-6 relative bg-gray-50 rounded">
