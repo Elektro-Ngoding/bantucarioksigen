@@ -9,12 +9,13 @@ interface Type {
   product_price: any;
   namaToko: any;
   product_url: any;
+  updated_date: any;
 }
 
 export default function ShopCard<T>(props: Type) {
   return (
     <div className="bg-gray-50 flex flex-col rounded-md overflow-hidden max-w-xs hover:bg-gray-100 shadow-md ">
-      <Link href="tokopedia">
+      <Link href={props.product_url}>
         <a className="flex-shrink-0 hover:cursor-pointer">
           <div className="display:inline-block;max-width:100%;overflow:hidden;position:relative;box-sizing:border-box;margin:0">
             <Image
@@ -28,31 +29,17 @@ export default function ShopCard<T>(props: Type) {
       </Link>
       <div className="p-1 space-y-1 h-0 flex-1 text-xs sm:text-sm">
         <div>
-          <p className="text-gray-500 truncate">{props.namaBarang}</p>
+          <b className="text-gray-500 truncate">{props.namaBarang}</b>
         </div>
         <div className="w-full sm:grid grid-cols-2 px-1">
-          <b className="px-1 rounded bg-red-500 text-white truncate">Rp: {props.product_price}</b>
+          <b className="p-1 rounded bg-red-500 text-white truncate">
+            Rp: {props.product_price}
+          </b>
         </div>
-        <div className="flex items-center align-middle justify-between">
-          <p className="text-gray-500">{props.namaToko}</p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 align-middle hover:has-tooltip"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            onClick={() => {
-              alert("report");
-            }}
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-            />
-          </svg>
-        </div>
+        <p className="text-gray-900 pt-1">{props.namaToko}</p>
+        <p className="text-gray-500 text-xs sm:text-xs">
+          <Moment fromNow>{props.updated_date}</Moment>
+        </p>
       </div>
     </div>
   );
