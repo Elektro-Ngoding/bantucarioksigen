@@ -17,7 +17,7 @@ export default function Navbar() {
   }, []);
   const handleLogout = () => {
     removeUserSession();
-    Router.push("/");
+    Router.reload();
   };
   const handleLogin = () => {
     Router.push("/Auth/login");
