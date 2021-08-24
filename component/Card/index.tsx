@@ -225,7 +225,7 @@ export default function Card<T>(props: DataCard) {
           </div>
         </div>
         <div className="mt-2 flex justify-between w-full">
-          <p className="mt-2 flex items-start text-sm text-gray-500 sm:mt-0">
+          <p className="select-all mt-2 flex items-start text-sm text-gray-500 sm:mt-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
