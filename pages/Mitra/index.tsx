@@ -1,14 +1,16 @@
-import Layout from "../../component/Layout/Layout";
-import Mitra from "../../component/Mitra/index";
-import { useState, useEffect } from "react";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import axios from "axios";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
+import Router from "next/router";
+import { useEffect, useState } from "react";
+import Dashboard from "../../component/dasboardMitra";
+import LoginForm from "../../component/LoginForm";
 import {
   getToken,
-  setUserSession,
   removeUserSession,
+  setUserSession,
 } from "../../lib/withSession";
-import axios from "axios";
-import Router from "next/router";
-import LoginForm from "../../component/LoginForm";
 
 export default function MitraOksigen() {
   const [authLoading, setAuthLoading] = useState(true);
@@ -33,19 +35,5 @@ export default function MitraOksigen() {
       });
   }, []);
 
-  return (
-    <>
-      <Layout>
-        {authLoading ? (
-          <LoginForm />
-        ) : (
-          <section className="flex flex-col flex-1 py-16">
-            <div className="w-full sm:max-w-xl mx-auto pt-4 px-4">
-              <Mitra />
-            </div>
-          </section>
-        )}
-      </Layout>
-    </>
-  );
+  return <>{authLoading ? <LoginForm /> : <Dashboard />}</>;
 }
