@@ -87,6 +87,7 @@ export default class Modal extends React.Component {
                 <MDBInput
                   label="Nama Toko"
                   name="namaToko"
+                  required
                   icon="user"
                   group
                   type="text"
@@ -102,6 +103,7 @@ export default class Modal extends React.Component {
                     <MDBInput
                       label="Waktu Buka"
                       name="waktuBuka"
+                      required
                       icon="tag"
                       group
                       type="time"
@@ -116,6 +118,7 @@ export default class Modal extends React.Component {
                     <MDBInput
                       label="Waktu Tutup"
                       name="waktuTutup"
+                      required
                       group
                       type="time"
                       validate
@@ -141,6 +144,7 @@ export default class Modal extends React.Component {
                 <MDBInput
                   label="Alamat"
                   name="alamat"
+                  required
                   icon="tag"
                   group
                   type="text"
@@ -153,6 +157,7 @@ export default class Modal extends React.Component {
                 <MDBInput
                   label="Kontak"
                   name="kontak"
+                  required
                   icon="tag"
                   group
                   type="text"
@@ -162,21 +167,21 @@ export default class Modal extends React.Component {
                   valueDefault={this.props.kontak}
                   onChange={this.handleChange}
                 />
-                <div class="flex flex-row items-center justify-between p-5 bg-white border-t border-gray-200 rounded-bl-lg rounded-br-lg">
+                <div class="flex flex-cols-3 flex-row-reverse mb-2">
+                  <button
+                    type="submit"
+                    class="text-white bg-blue-500 hover:bg-blue-400 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                  >
+                    Update Data
+                  </button>
                   <p
                     onClick={() => {
                       this.props.handleCloseModal();
                     }}
-                    class="font-semibold text-gray-600 hover:text-red-500 rounded"
+                    class="text-white bg-red-500 hover:bg-red-400 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                   >
                     Cancel
                   </p>
-                  <button
-                    type="submit"
-                    class="px-4 py-2 text-white font-semibold bg-blue-500 rounded"
-                  >
-                    Update Data
-                  </button>
                 </div>
               </div>
             </form>
