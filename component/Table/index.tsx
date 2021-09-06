@@ -3,8 +3,8 @@ import { useState } from "react";
 import Moment from "react-moment";
 import { activeMitra } from "../../lib/activeMitra";
 import { deleteMitra } from "../../lib/deleteMitra";
-import ModalDetail from "../Modal/detail";
-import Modal from "../Modal/index";
+import ModalDetail from "../Modal/detailMitra";
+import ModalUpdate from "../Modal/updateMitra";
 interface DataTableProps {
   dataTab: Array<any>;
 }
@@ -48,7 +48,12 @@ const Table = (props: DataTableProps) => {
     WaktuBuka: string,
     WaktuTutup: string
   ) => {
-    const action = confirm(`you are activate account mitra ${namaToko} ?`);
+    if (Status === "terverifikasi") {
+      Status = "belum terverifikasi";
+    } else if (Status === "belum terverifikasi") {
+      Status = "terverifikasi";
+    }
+    const action = confirm(`you are Change status account mitra ${Toko} ?`);
     {
       action
         ? activeMitra(
@@ -199,7 +204,7 @@ const Table = (props: DataTableProps) => {
         namaToko: data.namaToko,
         status: data.status,
         aktivasi: (
-          <div className="border-0 rounded-lg relative flex flex-col outline-none focus:outline-none">
+          <div className="cursor-pointer border-0 rounded-lg relative flex flex-col outline-none focus:outline-none">
             <div
               className="text-white bg-pink-500 active:bg-blue-600 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               onClick={() => {
@@ -219,7 +224,7 @@ const Table = (props: DataTableProps) => {
                 );
               }}
             >
-              Aktivasi
+              {data.status === "terverifikasi" ? <>freeze</> : <>Aktivasi</>}
             </div>
           </div>
         ),
@@ -310,15 +315,15 @@ const Table = (props: DataTableProps) => {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M6 18L18 6M6 6l12 12"
                     ></path>
                   </svg>
                 </div>
                 <div className="bg-gray-50 rounded">
-                  <Modal
+                  <ModalUpdate
                     _id={_id}
                     namaToko={namaToko}
                     status={status}
@@ -359,9 +364,9 @@ const Table = (props: DataTableProps) => {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M6 18L18 6M6 6l12 12"
                     ></path>
                   </svg>
