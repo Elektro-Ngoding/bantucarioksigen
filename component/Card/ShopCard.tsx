@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
-import Router from "next/router";
-import Moment from "react-moment";
 import Image from "next/image";
 import Link from "next/link";
+import Moment from "react-moment";
 interface Type {
   image_url: any;
   namaBarang: any;
@@ -29,7 +27,7 @@ export default function ShopCard<T>(props: Type) {
       </Link>
       <div className="p-1 space-y-1 h-0 flex-1 text-xs sm:text-sm">
         <div>
-          <b className="text-gray-500 truncate">{props.namaBarang}</b>
+          <p className="text-gray-500 truncate font-bold">{props.namaBarang}</p>
         </div>
         <div className="w-full sm:grid grid-cols-2 px-1">
           <b className="p-1 rounded bg-red-500 text-white truncate">
