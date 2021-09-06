@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Address from "../component/Address";
+import Alert from "../component/alert";
 import Card from "../component/Card";
 import Layout from "../component/Layout/Layout";
 
@@ -15,8 +16,16 @@ export default function Home(props: DataProps) {
     setFilteredData(dataCard);
   }, []);
 
-  const handleLoad = () => {
-    setLoad(true);
+  const handleLoad = (data: any) => {
+    setLoad(false);
+    if (data !== "") {
+      const results = dataCard.filter((res) => {
+        return res.data.provinsi.toLowerCase().startsWith(data.toLowerCase());
+      });
+      setFilteredData(results);
+    } else {
+      setFilteredData([]);
+    }
   };
 
   const handleSearch = (data: string) => {
@@ -32,15 +41,18 @@ export default function Home(props: DataProps) {
   };
 
   return (
-    <Layout>
+    <Layout
+      pageTitle="Beranda"
+      pageDeskripsi="Informasi ketersediaan oksigen yang yang ada di setiap kota di Indonesia, yang dikelola langsung oleh mitra penjual"
+      pageUrl={`/`}
+    >
       <section className="flex flex-col flex-1 py-16">
         <div className="w-full sm:max-w-xl mx-auto pt-4 px-4">
+          <Alert />
           <div className="w-full sm:max-w-xl mx-auto pb-8 space-y-4">
             <form>
               <Address
-                handleLoad={() => {
-                  handleLoad();
-                }}
+                handleLoad={(data: string) => handleLoad(data)}
                 handleSearch={(data: string) => handleSearch(data)}
               />
             </form>
@@ -49,7 +61,9 @@ export default function Home(props: DataProps) {
           {load ? (
             <div className="px-4 pt-4  mb-2 sm:px-6 relative bg-gray-50 rounded">
               <div className="px-4 pt-4 pb-2 sm:px-6 relative hover:bg-gray-50">
-                <h1 className="animate-bounce text-gray-300">Pilih Kab.kota kamu</h1>
+                <h1 className="animate-bounce text-gray-300">
+                  Pilih Kab.kota kamu
+                </h1>
               </div>
             </div>
           ) : (
@@ -98,9 +112,8 @@ export default function Home(props: DataProps) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3006/dataoksigen/");
+  const res = await fetch(`${process.env.API_HOST_ROUTER}`);
   const dataCard = await res.json();
-
   return {
     props: {
       dataCard,
