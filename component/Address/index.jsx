@@ -10,6 +10,8 @@ export default class Modal extends React.Component {
       _id: this.props._id,
       provinsi: this.props.provinsi,
       kota: this.props.kota,
+      valueProv: this.props.valueProv,
+      valueKota: this.props.valueKota,
     };
   }
 
@@ -21,7 +23,7 @@ export default class Modal extends React.Component {
       cities: selCities,
       provinsi: nameProv[0].name,
     });
-    this.props.handleLoad();
+    this.props.handleLoad(nameProv[0].name);
   };
 
   onSelectCity = (city) => {
@@ -43,6 +45,7 @@ export default class Modal extends React.Component {
               data={this.state.provinces}
               selectedId={this.state.provinceId}
               onSelect={this.onSelectProvince}
+              valueProv={this.props.valueProv}
             />
           </div>
           <div className="space-y-1">
@@ -50,6 +53,7 @@ export default class Modal extends React.Component {
               data={this.state.cities}
               selectedId={this.state.cityId}
               onSelect={this.onSelectCity}
+              valueKota={this.props.valueKota}
             />
           </div>
         </div>
@@ -70,9 +74,15 @@ class Province extends React.Component {
           className="browser-default custom-select"
           onChange={this.onSelect}
         >
-          <option selected disabled>
-            Pilih Provinsi
-          </option>
+          {this.props.valueProv ? (
+            <option value="null" selected disabled>
+              {this.props.valueProv}
+            </option>
+          ) : (
+            <option value="null" selected disabled>
+              Pilih Provinsi
+            </option>
+          )}
           {this.props.data.map((prov) => (
             <option
               key={prov.id}
@@ -101,9 +111,15 @@ class City extends React.Component {
           className="browser-default custom-select"
           onClick={this.onSelect}
         >
-          <option selected>
-            Pilih Kota
-          </option>
+          {this.props.valueKota ? (
+            <option value="null" selected disabled>
+              {this.props.valueKota}
+            </option>
+          ) : (
+            <option value="null" selected disabled>
+              Pilih Kota
+            </option>
+          )}
           {this.props.data.map((city) => (
             <option
               key={city.id}
