@@ -1,7 +1,6 @@
 import { MDBBtn, MDBCol, MDBRow } from "mdbreact";
 import { ChangeEvent, useEffect, useState } from "react";
-import { getMitra, updateMitra } from "../../../lib/mitraAction";
-import { removeUserSession } from "../../../lib/withSession";
+import { updateMitra } from "../../../lib/mitraAction";
 
 interface Type {
   _id: any;

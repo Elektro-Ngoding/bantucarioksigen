@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getProductMitra } from "../../../lib/getProduct";
 import ShopCardAdmin from "../../Card/ShopCardAdmin";
 import ShopModal from "../../Modal/shop";
 import UpdateModal from "../../Modal/updateShop";
-import { useState, useEffect } from "react";
-import { getProductMitra } from "../../../lib/getProduct";
 
 interface Type {
   _id: any;
@@ -30,7 +29,8 @@ export default function Shop(props: Type) {
     setNamaToko(props.namaToko);
     setProvinsi(props.provinsi);
     setKota(props.kota);
-    getProductMitra()
+    console.log(props._id);
+    getProductMitra(props._id)
       .then((res) => {
         const data = res;
         setDataProductMitra(data);
@@ -113,9 +113,9 @@ export default function Shop(props: Type) {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M6 18L18 6M6 6l12 12"
                     ></path>
                   </svg>
@@ -155,9 +155,9 @@ export default function Shop(props: Type) {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M6 18L18 6M6 6l12 12"
                     ></path>
                   </svg>

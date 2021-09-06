@@ -1,18 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getProduct } from "../../../lib/getProduct";
 import ShopCardAdmin from "../../Card/ShopCardAdmin";
 import ShopModal from "../../Modal/shop";
 import UpdateModal from "../../Modal/updateShop";
-import { useState, useEffect } from "react";
-import { getProduct } from "../../../lib/getProduct";
 
-interface Type {
-  _id: any;
-  namaToko: any;
-  provinsi: any;
-  kota: any;
-}
-
-export default function DataShop(props: Type) {
+export default function DataShop(props: any) {
   const [addDataModal, setAddDataModal] = useState(false);
   const [updateDataModal, setUpdateDataModal] = useState(false);
   const [dataProductMitra, setDataProductMitra] = useState([]);
@@ -104,12 +96,7 @@ export default function DataShop(props: Type) {
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
+                    <path strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                   </svg>
                 </div>
                 {/*body*/}
@@ -146,12 +133,7 @@ export default function DataShop(props: Type) {
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
+                    <path strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                   </svg>
                 </div>
                 {/*body*/}

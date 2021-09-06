@@ -3,24 +3,35 @@ import React from "react";
 interface Type {
   sidebarOpen: boolean;
   setSidebarOpen: any;
-  shop: any;
-  setShop: any;
-  profile: any;
-  setProfile: any;
+  dataShop: any;
+  setDataShop: any;
+  dataMitra: any;
+  setdataMitra: any;
 }
 
 function Sidebar(props: Type) {
-  const { sidebarOpen, setSidebarOpen, shop, setShop, profile, setProfile } =
-    props;
+  const {
+    sidebarOpen,
+    setSidebarOpen,
+    dataShop,
+    setDataShop,
+    dataMitra,
+    setdataMitra,
+  } = props;
 
   const handleShop = () => {
-    setShop(true);
-    setProfile(false);
+    setDataShop(true);
+    setdataMitra(false);
     setSidebarOpen(false);
   };
   const handleDasboard = () => {
-    setShop(false);
-    setProfile(false)
+    setDataShop(false);
+    setdataMitra(false);
+    setSidebarOpen(false);
+  };
+  const handleDataMitra = () => {
+    setDataShop(false);
+    setdataMitra(true);
     setSidebarOpen(false);
   };
   return (
@@ -75,7 +86,7 @@ function Sidebar(props: Type) {
           <ul className="mt-3">
             {/* Dashboard */}
             <li
-              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0`}
+              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 cursor-pointer`}
               onClick={() => handleDasboard()}
             >
               <div
@@ -103,9 +114,29 @@ function Sidebar(props: Type) {
                 </div>
               </div>
             </li>
-            {/* Customers */}
             <li
-              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0`}
+              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 cursor-pointer`}
+              onClick={() => handleDataMitra()}
+            >
+              <div
+                className={`block text-gray-900 hover:text-blue-900 transition duration-150`}
+              >
+                <div className="flex flex-grow">
+                  <svg
+                    className="h-6 w-6 mr-3 fill-current text-gray-400"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z" />
+                    <path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z" />
+                    <path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z" />
+                  </svg>
+                  <span className="text-sm font-medium">Data Mitra</span>
+                </div>
+              </div>
+            </li>
+            {/* dataShop */}
+            <li
+              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 cursor-pointer`}
               onClick={() => handleShop()}
             >
               <div
@@ -117,13 +148,13 @@ function Sidebar(props: Type) {
                     viewBox="0 0 24 24"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                   </svg>
-                  <span className="text-sm font-medium">Shop</span>
+                  <span className="text-sm font-medium">DataShop</span>
                 </div>
               </div>
             </li>
@@ -133,7 +164,9 @@ function Sidebar(props: Type) {
           <hr />
           <ul className="mt-3">
             {/* home page */}
-            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0`}>
+            <li
+              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 cursor-pointer`}
+            >
               <Link href="/">
                 <div className="block text-gray-900 hover:text-blue-900 transition duration-150">
                   <div className="flex flex-grow">
@@ -146,9 +179,9 @@ function Sidebar(props: Type) {
                       aria-hidden="true"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                       ></path>
                     </svg>
@@ -157,7 +190,9 @@ function Sidebar(props: Type) {
                 </div>
               </Link>
             </li>
-            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0`}>
+            <li
+              className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 cursor-pointer`}
+            >
               <Link href="/explore">
                 <div
                   className={`block text-gray-900 hover:text-blue-900 transition duration-150`}
@@ -172,9 +207,9 @@ function Sidebar(props: Type) {
                       aria-hidden="true"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
