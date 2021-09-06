@@ -1,4 +1,4 @@
-import  Router  from "next/router";
+import Router from "next/router";
 import { useEffect, useState } from "react";
 import Card from "../component/Card";
 import Layout from "../component/Layout/Layout";
@@ -7,12 +7,12 @@ interface DataProps {
   dataCard: Array<any>;
 }
 
-export default function bookmark(props: DataProps) {
+export default function Bookmark(props: DataProps) {
   const { dataCard } = props;
   const [filteredData, setFilteredData] = useState(dataCard);
   const handleRefreshBookmark = () => {
-     Router.reload()
-  }
+    Router.reload();
+  };
   useEffect(() => {
     const getData = JSON.parse(localStorage.getItem("bookMark") || "{}");
     if (getData.length == 0) {
@@ -22,13 +22,17 @@ export default function bookmark(props: DataProps) {
         return getData.includes(res._id);
       });
       setFilteredData(results);
-    }else{
+    } else {
       setFilteredData([]);
     }
   }, []);
 
   return (
-    <Layout>
+    <Layout
+      pageTitle="Bookmark"
+      pageDeskripsi="Simpan informasi yang kamu butuhkan disini"
+      pageUrl={`/bookmark`}
+    >
       <section className="flex flex-col flex-1 py-16">
         <div className="w-full sm:max-w-xl mx-auto pt-4 px-4">
           <div className="w-full sm:max-w-xl mx-auto pb-8 space-y-4">
@@ -76,7 +80,7 @@ export default function bookmark(props: DataProps) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3006/dataoksigen/");
+  const res = await fetch(`${process.env.API_HOST_ROUTER}`);
   const dataCard = await res.json();
 
   return {
