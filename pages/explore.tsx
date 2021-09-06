@@ -2,12 +2,12 @@ import ShopCard from "../component/Card/ShopCard";
 import Layout from "../component/Layout/Layout";
 import Address from "../component/Address/index";
 import { useState, useEffect } from "react";
-
+import withAuth from "../HOC/withAuth";
 interface Type {
   dataCard: Array<any>;
 }
 
-export default function explore(props: Type) {
+function Explore(props: Type) {
   const { dataCard } = props;
   const [filteredData, setFilteredData] = useState(dataCard);
   const [load, setLoad] = useState<boolean>(false);
@@ -15,8 +15,16 @@ export default function explore(props: Type) {
     setFilteredData(dataCard);
   }, []);
 
-  const handleLoad = () => {
-    setLoad(true);
+  const handleLoad = (data: any) => {
+    setLoad(false);
+    if (data !== "") {
+      const results = dataCard.filter((res) => {
+        return res.data.provinsi.toLowerCase().startsWith(data.toLowerCase());
+      });
+      setFilteredData(results);
+    } else {
+      setFilteredData([]);
+    }
   };
 
   const handleSearch = (data: string) => {
@@ -32,14 +40,16 @@ export default function explore(props: Type) {
   };
 
   return (
-    <Layout>
+    <Layout
+      pageTitle="Explore"
+      pageDeskripsi="Informasi produk kelengkapan oksigen yang yang ada di setiap kota di Indonesia, yang dikelola langsung oleh mitra penjual"
+      pageUrl={`/explore`}
+    >
       <section className="overflow-hidden px-4 py-6 pb-4 space-y-4 pt-16">
         <div className="w-full sm:max-w-xl mx-auto pt-2 px-2">
           <div className="text-lg sm:text-xl mb-2">
             <Address
-              handleLoad={() => {
-                handleLoad();
-              }}
+              handleLoad={(data: string) => handleLoad(data)}
               handleSearch={(data: string) => handleSearch(data)}
             />
             <hr />
@@ -55,10 +65,10 @@ export default function explore(props: Type) {
               <>
                 {filteredData.length === 0 ? (
                   <div className="px-4 overflow-hidden bg-white py-6 space-y-4">
-                  <h1 className="animate-bounce text-center font-semibold text-gray-300 text-lg">
-                   Data not found ....
-                  </h1>
-                </div>
+                    <h1 className="animate-bounce text-center font-semibold text-gray-300 text-lg">
+                      Data not found ....
+                    </h1>
+                  </div>
                 ) : (
                   <>
                     {filteredData.map((res: any) => {
@@ -85,9 +95,10 @@ export default function explore(props: Type) {
     </Layout>
   );
 }
+export default Explore;
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3006/product/");
+  const res = await fetch(`${process.env.API_HOST_ROUTER_8}`);
   const dataCard = await res.json();
 
   return {
