@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
-import Router from "next/router";
-import Moment from "react-moment";
 import Image from "next/image";
 import Link from "next/link";
+import Moment from "react-moment";
 import { deleteProduct } from "../../lib/getProduct";
 
 export default function ShopCardAdmin<T>(props: any) {
