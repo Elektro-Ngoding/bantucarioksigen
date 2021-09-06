@@ -1,10 +1,9 @@
-import React, { ChangeEvent, useState, InputHTMLAttributes } from "react";
+import React, { ChangeEvent, useState } from "react";
 import ImageUploading from "react-images-uploading";
 import {
   mitraUpdateProduct,
   mitraUpdateProductWithOutImages,
 } from "../../lib/getProduct";
-import Image from "next/image";
 interface Type {
   setUpdateDataModal: any;
   _id: any;
@@ -80,18 +79,7 @@ export default function updateShop(props: Type) {
         report
       );
     }
-    // console.log(
-    // _id,
-    // id_mitra,
-    // namaToko,
-    // namaProduct,
-    // idr,
-    // images.length,
-    // product_url,
-    // provinsi,
-    // kota,
-    // report
-    // );
+    props.setUpdateDataModal(false);
   };
   return (
     <>
@@ -190,7 +178,6 @@ export default function updateShop(props: Type) {
                             <div
                               className="text-blue-500 mt-4"
                               onClick={onImageUpload}
-                              {...dragProps}
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -200,9 +187,9 @@ export default function updateShop(props: Type) {
                                 stroke="currentColor"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
                                   d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
                                 />
                               </svg>

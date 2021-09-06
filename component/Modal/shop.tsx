@@ -1,6 +1,4 @@
-import { frost } from "@cloudinary/base/qualifiers/artisticFilter";
-import React from "react";
-import { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import ImageUploading from "react-images-uploading";
 import { mitraAddProduct } from "../../lib/getProduct";
 
@@ -50,6 +48,7 @@ export default function Shop(props: Type) {
       idr,
       image_url
     );
+    props.setAddDataModal(false);
   };
   return (
     <>
@@ -134,10 +133,9 @@ export default function Shop(props: Type) {
                       >
                         {imageList.length >= 1 ? null : (
                           <>
-                            <button
+                            <div
                               className="text-blue-500 mt-4"
                               onClick={onImageUpload}
-                              {...dragProps}
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -147,20 +145,20 @@ export default function Shop(props: Type) {
                                 stroke="currentColor"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
                                   d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
                                 />
                               </svg>
-                            </button>
+                            </div>
                           </>
                         )}
                         &nbsp;
                         {imageList.length >= 2 ? (
-                          <button onClick={onImageRemoveAll}>
+                          <div onClick={onImageRemoveAll}>
                             Remove all images
-                          </button>
+                          </div>
                         ) : null}
                         <div className="grid grid-cols-1 pb-2">
                           {imageList.map((image, index) => (
@@ -171,18 +169,18 @@ export default function Shop(props: Type) {
                                 width="120"
                               />
                               <div className="image-item__btn-wrapper py-1">
-                                <button
+                                <div
                                   onClick={() => onImageUpdate(index)}
                                   className="bg-green-500 text-white rounded p-1"
                                 >
                                   Update
-                                </button>
-                                <button
+                                </div>
+                                <div
                                   onClick={() => onImageRemove(index)}
                                   className="bg-red-500 text-white rouded p-1"
                                 >
                                   Remove
-                                </button>
+                                </div>
                               </div>
                             </div>
                           ))}
@@ -190,10 +188,6 @@ export default function Shop(props: Type) {
                       </div>
                     )}
                   </ImageUploading>
-
-                  {/* {({ imageList, dragProps, isDragging }) => (
- 
-                    )} */}
                 </div>
                 <p className="text-sm text-gray-300">
                   <span>File type: png,jpg,jpeg</span>
