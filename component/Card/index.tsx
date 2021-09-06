@@ -186,9 +186,7 @@ export default function Card<T>(props: DataCard) {
                     aria-hidden="true"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeWidth="2"
                       d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
                     ></path>
                   </svg>
@@ -212,9 +210,7 @@ export default function Card<T>(props: DataCard) {
                     aria-hidden="true"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeWidth="2"
                       d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
                     ></path>
                   </svg>
@@ -234,9 +230,9 @@ export default function Card<T>(props: DataCard) {
               className="flex-shrink-0 mr-2 h-4 w-4 text-gray-400"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
             {props.alamat}
@@ -260,9 +256,7 @@ export default function Card<T>(props: DataCard) {
                       aria-hidden="true"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeWidth="2"
                         d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
                       ></path>
                     </svg>
@@ -286,9 +280,7 @@ export default function Card<T>(props: DataCard) {
                       aria-hidden="true"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeWidth="2"
                         d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
                       ></path>
                     </svg>
@@ -317,9 +309,7 @@ export default function Card<T>(props: DataCard) {
                   aria-hidden="true"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeWidth="2"
                     d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
                   ></path>
                 </svg>
@@ -354,9 +344,7 @@ export default function Card<T>(props: DataCard) {
                 onClick={() => handleSave(props._id)}
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1"
+                  strokeWidth="1"
                   d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
                 />
               </svg>
