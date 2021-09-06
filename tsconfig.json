@@ -14,6 +14,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "component/Modal/detail.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "component/Modal/detailMitra.tsx"],
   "exclude": ["node_modules"]
 }
