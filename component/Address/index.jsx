@@ -71,7 +71,7 @@ class Province extends React.Component {
       <div>
         <label>Provinsi : </label>
         <select
-          className="browser-default custom-select"
+          className="form-select block w-full rounded p-2 bg-white appearance-none hover:shadow-md border border-gray-300"
           onChange={this.onSelect}
         >
           {this.props.valueProv ? (
@@ -108,7 +108,7 @@ class City extends React.Component {
       <div>
         <label>Kab.Kota :</label>
         <select
-          className="browser-default custom-select"
+          className="form-select block w-full rounded p-2 bg-white appearance-none hover:shadow-md  border border-gray-300"
           onClick={this.onSelect}
         >
           {this.props.valueKota ? (
