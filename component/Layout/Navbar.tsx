@@ -45,7 +45,7 @@ export default function Navbar() {
             </a>
           </div>
           <div className="p-2 space-y-1 flex-1">
-            <select className="browser-default custom-select">
+            <select className="bg-gray-200 rounded font-bold">
               <option>Oksigen</option>
             </select>
           </div>
