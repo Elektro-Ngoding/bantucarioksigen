@@ -72,7 +72,7 @@ function Sidebar(props: Type) {
           <Link href="/">
             <div className="cursor-pointer text-gray-900 pt-2 rounded">
               <h6>
-                <b>Dashboard Mitra</b>
+                <b>Dashboard Admin</b>
               </h6>
             </div>
           </Link>

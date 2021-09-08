@@ -41,7 +41,7 @@ export default function DataShop(props: any) {
   return (
     <>
       <div>
-        <div className="grid grid-cols-3 gap-4 sm:px-5">
+        <div className="grid sm:px-1 w-1/4">
           <div
             onClick={() => {
               setAddDataModal(true);
@@ -51,7 +51,7 @@ export default function DataShop(props: any) {
             Tambah Product
           </div>
         </div>
-        <div className="mt-3 flex flex-cols-12 gap-4 sm:p-5 sm:flex-cols-3 sm:gap-2">
+        <div className="mt-3 grid md:grid-cols-4 sm:grid-cols-2 gap-4 sm:p-5 sm:gap-2">
           {dataProductMitra.map((res: any) => {
             return (
               <>
