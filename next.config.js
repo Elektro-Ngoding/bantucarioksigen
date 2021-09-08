@@ -1,10 +1,14 @@
 const nextEnv = require("next-env");
 const dotenvLoad = require("dotenv-load");
+const withPWA = require("next-pwa");
 
 dotenvLoad();
 
 const withNextEnv = nextEnv();
-module.exports = {
+module.exports = withPWA({
+  pwa: {
+    dest: 'public'
+  },
   env: {
     BASE_URL: process.env.API_HOST,
     API_HOST_ROUTER: process.env.API_HOST_ROUTER,
@@ -31,4 +35,4 @@ module.exports = {
   images: {
     domains: ["res.cloudinary.com"],
   },
-};
+});
