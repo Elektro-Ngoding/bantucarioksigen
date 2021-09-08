@@ -1,4 +1,7 @@
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
 import { MDBDataTable } from "mdbreact";
+import "mdbreact/dist/css/mdb.css";
 import { useState } from "react";
 import Moment from "react-moment";
 import { activeMitra } from "../../lib/activeMitra";
