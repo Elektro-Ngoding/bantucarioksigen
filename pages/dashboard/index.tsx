@@ -1,10 +1,5 @@
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import "bootstrap-css-only/css/bootstrap.min.css";
-import "mdbreact/dist/css/mdb.css";
-// import DashboardComponent from "../../component/dasboard";
+import DashboardComponent from "../../component/dasboard";
 import withAuth from "../../HOC/withAuth";
-import React, { lazy } from "react";
-const DashboardComponent = lazy(() => import("../../component/dasboard"));
 interface Type {
   dataTable: Array<any>;
 }

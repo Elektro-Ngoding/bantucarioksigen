@@ -47,12 +47,11 @@ function Explore(props: Type) {
     >
       <section className="overflow-hidden px-4 py-6 pb-4 space-y-4 pt-16">
         <div className="w-full sm:max-w-xl mx-auto pt-2 px-2">
-          <div className="text-lg sm:text-xl mb-2">
+          <div className="text-lg sm:text-xl mb-3">
             <Address
               handleLoad={(data: string) => handleLoad(data)}
               handleSearch={(data: string) => handleSearch(data)}
             />
-            <hr />
           </div>
           <div className="grid grid-cols-3 gap-4">
             {load ? (
