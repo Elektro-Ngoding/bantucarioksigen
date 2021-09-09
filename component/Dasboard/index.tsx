@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { removeUser } from "../../lib/auth";
 import { getMitra } from "../../lib/mitraAction";
 import DataMitra from "./DataMitra";
-import DataShop from "./DataShop/";
+import DataShop from "./DataShop";
 import Header from "./Header/header";
 import HeaderAdmin from "./Header/HeaderAdmin/header";
 import Home from "./Home";
@@ -12,7 +12,7 @@ import HomeAdmin from "./Home/HomeAdmin";
 import Profile from "./Profile";
 import Shop from "./Shop";
 import Sidebar from "./Sidebar";
-import SidebarAdmin from "./Sidebar/SidebarAdmin/";
+import SidebarAdmin from "./Sidebar/SidebarAdmin";
 interface Type {
   dataTable: Array<any>;
 }
@@ -134,7 +134,10 @@ function DashboardMitra(props: Type) {
                 <h1 className="text-2xl md:text-3xl text-gray-800 font-bold mb-1">
                   Tidak ada kebaikan yang sia-sia 👋
                 </h1>
-                <p>Bersama kita bangun sistem ini menjadi ajang berbagi kebaikan melalui informasi</p>
+                <p>
+                  Bersama kita bangun sistem ini menjadi ajang berbagi kebaikan
+                  melalui informasi
+                </p>
               </div>
             </div>
             {role === "admin" ? (

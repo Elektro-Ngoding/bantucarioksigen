@@ -1,4 +1,4 @@
-import DashboardComponent from "../../component/dasboard";
+import DashboardComponent from "../../component/Dasboard";
 import withAuth from "../../HOC/withAuth";
 interface Type {
   dataTable: Array<any>;

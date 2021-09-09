@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import Router from "next/router";
+import { useEffect, useState } from "react";
 import Moment from "react-moment";
 interface DataCard {
   _id: any;
@@ -299,6 +299,7 @@ export default function Card<T>(props: DataCard) {
                   "https://www.google.com/maps/search/?api=1&query=" +
                   props.alamat
                 }
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

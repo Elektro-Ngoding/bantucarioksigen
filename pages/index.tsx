@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Address from "../component/Address";
-import Alert from "../component/alert";
+import Alert from "../component/Alert";
 import Card from "../component/Card";
 import Layout from "../component/Layout/Layout";
 

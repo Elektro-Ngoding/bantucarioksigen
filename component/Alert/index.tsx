@@ -13,6 +13,7 @@ export default function Alert() {
         const latitude = data.data.latitude;
         const longitude = data.data.longitude;
         getRIsk(city, latitude, longitude);
+        console.log(city)
       })
       .catch((err) => {
         console.log(err);
@@ -36,7 +37,7 @@ export default function Alert() {
     getLocation();
   }, []);
   return (
-    <a href="https://covid19.go.id/" target="_blank"> 
+    <a href="https://covid19.go.id/" target="_blank" rel="noreferrer">
       <div className="text-center pb-2 mb-2 lg:px-4 rounded">
         <div
           className="rounded-full p-2 bg-yellow-200 items-center text-black-500 leading-none lg:rounded-full flex lg:inline-flex"
