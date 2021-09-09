@@ -13,7 +13,6 @@ export default function Alert() {
         const latitude = data.data.latitude;
         const longitude = data.data.longitude;
         getRIsk(city, latitude, longitude);
-        console.log(city)
       })
       .catch((err) => {
         console.log(err);
