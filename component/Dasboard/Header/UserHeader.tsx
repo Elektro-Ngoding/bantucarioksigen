@@ -46,7 +46,7 @@ function UserMenu(props: Type) {
           <div className="origin-top-right z-10 absolute top-full right-0 bg-white border border-gray-200 rounded shadow-lg mt-1">
             <div>
               <div
-                className="font-medium text-sm text-indigo-500 flex items-center px-4 hover:bg-blue-900 hover:text-white rounded"
+                className="font-medium text-sm text-gray-900 flex items-center px-4 hover:bg-blue-900 hover:text-white rounded cursor-pointer"
                 onClick={handleProfile}
               >
                 <svg
@@ -62,11 +62,11 @@ function UserMenu(props: Type) {
                   />
                   <path strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <p className="px-1 pt-3">Profile</p>
+                <p className="px-1 py-2">Profile</p>
               </div>
 
               <div
-                className="font-medium text-sm text-indigo-500 flex items-center align-middle pb-1 px-4 hover:text-white hover:bg-red-500 rounded cursor-pointer"
+                className="font-medium text-sm text-gray-900 flex items-center align-middle pb-1 px-4 hover:text-white hover:bg-red-500 rounded cursor-pointer"
                 onClick={handleLogout}
               >
                 <svg
@@ -81,7 +81,7 @@ function UserMenu(props: Type) {
                     d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                   />
                 </svg>
-                <p className="pt-3 px-1">logout</p>
+                <p className="py-2 px-1">logout</p>
               </div>
             </div>
           </div>

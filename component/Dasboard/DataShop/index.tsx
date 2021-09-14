@@ -51,7 +51,7 @@ export default function DataShop(props: any) {
             Tambah Product
           </div>
         </div>
-        <div className="mt-3 grid md:grid-cols-4 sm:grid-cols-2 gap-4 sm:p-5 sm:gap-2">
+        <div className="mt-3 grid grid-cols-2 sm:p-5 gap-4 md:grid-cols-5 md:gap-2">
           {dataProductMitra.map((res: any) => {
             return (
               <>

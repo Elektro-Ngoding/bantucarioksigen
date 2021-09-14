@@ -127,7 +127,7 @@ function DashboardMitra(props: Type) {
           />
         )}
         <section className="flex flex-col flex-1 mb-5">
-          <div className="md:max-w-full  mx-auto pt-4 px-4 sm:max-w-xl">
+          <div className="md:max-w-full  mx-auto pt-4 px-4 sm:max-w-xl lg:w-full">
             <div className="relative bg-indigo-200 p-4 sm:p-6 rounded-sm overflow-hidden mb-8">
               {/* Content */}
               <div className="relative">

@@ -57,15 +57,15 @@ export default function Shop(props: Type) {
   return (
     <>
       <div>
-        <div className="grid grid-cols-3 gap-4">
-          <div
+        <div>
+          <button
             onClick={() => {
               setAddDataModal(true);
             }}
-            className="text-white bg-blue-500 hover:bg-blue-400 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            className="btn relative shadow-md text-white bg-blue-500 hover:bg-blue-400 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
           >
             Tambah Product
-          </div>
+          </button>
         </div>
         <div className="mt-3 grid grid-cols-3 gap-2">
           {dataProductMitra.map((res: any) => {

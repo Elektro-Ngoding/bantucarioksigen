@@ -1,4 +1,3 @@
-import { MDBBtn, MDBCol, MDBRow } from "mdbreact";
 import { ChangeEvent, useEffect, useState } from "react";
 import { updateMitra } from "../../../lib/mitraAction";
 
@@ -64,14 +63,14 @@ export default function Home(props: Type) {
   return (
     <div className="w-full sm:max-w-xl mx-auto pb-8 space-y-4">
       <form method="post" onSubmit={handleSubmit}>
-        <MDBRow center>
-          <MDBCol sm="4" middle>
-            <h4>Status</h4>
-          </MDBCol>
-          <MDBCol sm="4" middle>
+        <div className="grid grid-cols-3 justify-beetwen items-center">
+          <div className="p-2">
+            <span className="text-gray-900 font-bold text-md">Status</span>
+          </div>
+          <div className="p-2">
             <div>
               <select
-                className="browser-default custom-select"
+                className="form-select block w-full rounded p-2 bg-white appearance-none hover:shadow-md border border-gray-300"
                 data-style="select-new"
                 data-live-search="true"
                 data-size={3}
@@ -91,24 +90,27 @@ export default function Home(props: Type) {
                 <option value="tutup">Tutup</option>
               </select>
             </div>
-          </MDBCol>
-          <MDBCol sm="4" middle>
-            <MDBBtn type="submit" className="btn p-2">
+          </div>
+          <div className="p-2">
+            <button
+              type="submit"
+              className="btn p-2 bg-blue-900 rounded text-gray-100"
+            >
               Update
-            </MDBBtn>
-          </MDBCol>
-        </MDBRow>
+            </button>
+          </div>
+        </div>
       </form>
       <hr />
-      <form onSubmit={handleSubmit}>
-        <MDBRow center>
-          <MDBCol sm="4" middle>
-            <h4>Stok</h4>
-          </MDBCol>
-          <MDBCol sm="4" middle>
+      <form method="post" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-3 justify-beetwen items-center">
+          <div className="p-2">
+            <span className="text-gray-900 font-bold text-md">Stok</span>
+          </div>
+          <div className="p-2">
             <div>
               <select
-                className="browser-default custom-select"
+                className="form-select block w-full rounded p-2 bg-white appearance-none hover:shadow-md border border-gray-300"
                 data-style="select-new"
                 data-live-search="true"
                 data-size={3}
@@ -127,25 +129,28 @@ export default function Home(props: Type) {
                 <option>Stok Kosong</option>
               </select>
             </div>
-          </MDBCol>
+          </div>
 
-          <MDBCol sm="4" middle>
-            <MDBBtn type="submit" className="btn p-2">
+          <div className="p-2">
+            <button
+              type="submit"
+              className="btn p-2 bg-blue-900 rounded text-gray-100"
+            >
               Update
-            </MDBBtn>
-          </MDBCol>
-        </MDBRow>
+            </button>
+          </div>
+        </div>
       </form>
       <hr />
-      <form onSubmit={handleSubmit}>
-        <MDBRow center>
-          <MDBCol sm="4">
-            <h4>Antrian</h4>
-          </MDBCol>
-          <MDBCol sm="4" middle>
+      <form method="post" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-3 justify-beetwen items-center">
+          <div>
+            <span className="text-gray-900 font-bold text-md">Antrian</span>
+          </div>
+          <div className="p-2">
             <div>
               <select
-                className="browser-default custom-select"
+                className="form-select block w-full rounded p-2 bg-white appearance-none hover:shadow-md border border-gray-300"
                 data-style="select-new"
                 data-live-search="true"
                 data-size={3}
@@ -164,14 +169,17 @@ export default function Home(props: Type) {
                 <option>Tidak Ada</option>
               </select>
             </div>
-          </MDBCol>
+          </div>
 
-          <MDBCol sm="4" middle>
-            <MDBBtn type="submit" className="btn p-2">
+          <div className="p-2">
+            <button
+              type="submit"
+              className="btn p-2 bg-blue-900 rounded text-gray-100"
+            >
               Update
-            </MDBBtn>
-          </MDBCol>
-        </MDBRow>
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
