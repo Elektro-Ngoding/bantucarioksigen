@@ -24,7 +24,7 @@ export default function about() {
                   alt="logo bantucari"
                 />
               </div>
-              <p className="flex items-center text-sm leading-5 text-gray-700 sm:text-base">
+              <p className="flex items-center text-sm leading-5 text-gray-700 sm:text-base text-justify">
                 Sistem ini adalah bentuk dari inisiatif dalam membantu
                 menyelesaikan permasalahan kesulitan oksigen yang saat ini
                 terjadi maupun untuk kesiapan di masa mendantang, dengan tujuan
@@ -35,16 +35,16 @@ export default function about() {
                 berkontribusi dalam peanganan pandemi di indonesia. BantuCari
                 bersifat inklusif, independent dan non-partisan
               </p>
-              <p className="flex items-center text-sm leading-5 text-gray-700 sm:text-base">
+              <p className="flex items-center text-sm leading-5 text-gray-700 sm:text-base text-justify">
                 BantuCari Terbuka dengan beragam kolaborasi individu, komunitas,
                 perushaan/brand yang ingin bekerja sama dapat berkolaborasi
                 dengan BantuCari dengan cara mengirim email ke alamat :
               </p>
-              <a href="mailto:relawanbantucari@gmail.com">
-                relawanbantucari@gmail.com
+              <a href="mailto:">
+                bantucarioksigen@gmail.com
               </a>
               <div className="flex flex-wrap justify-center items-center relative bg-gray-200 p-3">
-                <a href="mailto:relawanbantucari@gmail.com">
+                <a href="mailto:">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 mx-1 text-black hover:text-blue-900"
