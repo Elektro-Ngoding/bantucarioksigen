@@ -1,0 +1,37 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+- rule: DEPLOYMENT_LIVE
+domains:
+- domain: bantucari.me
+  type: PRIMARY
+name: bantucarioksigen
+region: sgp
+services:
+- build_command: yarn build
+  cors: 
+    allow_headers:
+    - '*'
+    allow_methods:
+    - GET
+    - OPTIONS
+    - POST
+    - PUT
+    - PATCH
+    - DELETE
+    allow_origins:
+    - prefix: https://api.bantucari.me
+    - prefix: https://bantucari.me
+  environment_slug: node-js
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: Elektro-Ngoding/bantucarioksigen
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: bantucarioksigen
+  routes:
+  - path: /
+  run_command: yarn start
+  source_dir: /
