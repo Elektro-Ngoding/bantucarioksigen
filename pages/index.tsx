@@ -11,7 +11,12 @@ interface DataProps {
 export default function Home(props: DataProps) {
   const { dataCard } = props;
   const [filteredData, setFilteredData] = useState(dataCard);
+  const [saveData, setSaveData] = useState(dataCard);
   const [load, setLoad] = useState<boolean>(false);
+  const [filterButton1, setFilterButton1] = useState(false);
+  const [filterButton2, setFilterButton2] = useState(false);
+  const [filterButton3, setFilterButton3] = useState(false);
+
   useEffect(() => {
     setFilteredData(dataCard);
   }, []);
@@ -22,6 +27,7 @@ export default function Home(props: DataProps) {
       const results = dataCard.filter((res) => {
         return res.data.provinsi.toLowerCase().startsWith(data.toLowerCase());
       });
+      setSaveData(results);
       setFilteredData(results);
     } else {
       setFilteredData([]);
@@ -34,9 +40,49 @@ export default function Home(props: DataProps) {
       const results = dataCard.filter((res) => {
         return res.data.kota.toLowerCase().startsWith(data.toLowerCase());
       });
+      setSaveData(results);
       setFilteredData(results);
     } else {
       setFilteredData([]);
+    }
+  };
+  const filterButton = (value: any) => {
+    if (value === 1) {
+      {
+        filterButton1 === true
+          ? setFilterButton1(false)
+          : setFilterButton1(true);
+      }
+      if (filterButton1 === false) {
+        const results = filteredData.filter((res) => {
+          return res.status.toLowerCase().startsWith("terverifikasi");
+        });
+        setFilterButton3(false);
+        setFilteredData(results);
+      } else {
+        setFilteredData(saveData);
+      }
+    } else if (value === 2) {
+      alert("Data ketrsediaan oksigen gratis dalam pengembangan");
+    } else if (value === 3) {
+      setFilterButton1(false);
+      setFilteredData(saveData);
+      {
+        filterButton3 === true
+          ? setFilterButton3(false)
+          : setFilterButton3(true);
+      }
+      if (filterButton3 === false) {
+        const results = filteredData.filter((res) => {
+          return res.data.statusBuka.toLowerCase().startsWith("buka");
+        });
+
+        setFilteredData(results);
+      } else {
+        setFilteredData(saveData);
+      }
+    } else {
+      null;
     }
   };
 
@@ -49,13 +95,47 @@ export default function Home(props: DataProps) {
       <section className="flex flex-col flex-1 py-16">
         <div className="w-full sm:max-w-xl mx-auto pt-4 px-4">
           <Alert />
-          <div className="w-full sm:max-w-xl mx-auto pb-8 space-y-4">
+          <div className="w-full sm:max-w-xl mx-auto pb-5 space-y-4">
             <form>
               <Address
                 handleLoad={(data: string) => handleLoad(data)}
                 handleSearch={(data: string) => handleSearch(data)}
               />
             </form>
+            <div>
+              <div className="flex gap-1">
+                <span
+                  className={
+                    filterButton1
+                      ? "bg-gray-900 text-white rounded-full p-2 border border-gray-300 font-bold text-xs cursor-pointer"
+                      : "bg-white text-gray-900 rounded-full p-2 border border-gray-300 font-bold text-xs cursor-pointer"
+                  }
+                  onClick={() => filterButton(1)}
+                >
+                  Dikelola Mitra
+                </span>
+                <span
+                  className={
+                    filterButton2
+                      ? "bg-gray-900 text-white rounded-full p-2 border border-gray-300 font-bold text-xs cursor-pointer"
+                      : "bg-white text-gray-900 rounded-full p-2 border border-gray-300 font-bold text-xs cursor-pointer"
+                  }
+                  onClick={() => filterButton(2)}
+                >
+                  Gratis
+                </span>
+                <span
+                  className={
+                    filterButton3
+                      ? "bg-gray-900 text-white rounded-full p-2 border border-gray-300 font-bold text-xs cursor-pointer"
+                      : "bg-white text-gray-900 rounded-full p-2 border border-gray-300 font-bold text-xs cursor-pointer"
+                  }
+                  onClick={() => filterButton(3)}
+                >
+                  Buka
+                </span>
+              </div>
+            </div>
             {/* </MDBContainer> */}
           </div>
           {load ? (
