@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import DataShop from "../DataShop";
 interface Type {
   sidebarOpen: boolean;
   setSidebarOpen: any;
@@ -35,7 +36,7 @@ function Sidebar(props: Type) {
 
       {/* Sidebar */}
       <div
-        className={`absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 transform h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 flex-shrink-0 bg-gray-200 p-4 transition-transform duration-200 ease-in-out ${
+        className={`absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 transform h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 flex-shrink-0 bg-blue-900 p-4 transition-transform duration-200 ease-in-out ${
           sidebarOpen ? "translate-x-0" : "-translate-x-64"
         }`}
       >
@@ -50,7 +51,7 @@ function Sidebar(props: Type) {
           >
             <span className="sr-only">Close sidebar</span>
             <svg
-              className="w-6 h-6 fill-current"
+              className="w-6 h-6 fill-current text-gray-100"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -59,7 +60,7 @@ function Sidebar(props: Type) {
           </button>
           {/* Logo */}
           <Link href="/">
-            <div className="cursor-pointer text-gray-900 pt-2 rounded">
+            <div className="cursor-pointer text-gray-100 pt-2 rounded">
               <h6>
                 <b>Dashboard Mitra</b>
               </h6>
@@ -69,7 +70,7 @@ function Sidebar(props: Type) {
 
         {/* Links */}
         <div>
-          <h3 className="text-xs uppercase text-gray-500 font-semibold pl-3">
+          <h3 className="text-xs uppercase text-gray-100 font-semibold pl-3">
             Pages
           </h3>
           <ul className="mt-3">
@@ -79,7 +80,9 @@ function Sidebar(props: Type) {
               onClick={() => handleDasboard()}
             >
               <div
-                className={`block text-gray-900 hover:text-blue-900 transition duration-150`}
+                className={shop == false && profile == false
+                  ? `block p-2 rounded bg-white text-gray-900 hover:text-blue-900 transition duration-150`
+                  : `p-2 rounded block text-gray-100 hover:bg-gray-300 hover:text-gray-900 transition duration-150`}
               >
                 <div className="flex flex-grow">
                   <svg
@@ -109,7 +112,9 @@ function Sidebar(props: Type) {
               onClick={() => handleShop()}
             >
               <div
-                className={`block text-gray-900 hover:text-blue-900 transition duration-150`}
+                className={shop == true && profile == false
+                  ? `block p-2 rounded bg-white text-gray-900 hover:text-blue-900 transition duration-150`
+                  : `p-2 rounded block text-gray-100 hover:bg-gray-300 hover:text-gray-900 transition duration-150`}
               >
                 <div className="flex flex-grow">
                   <svg
@@ -135,7 +140,7 @@ function Sidebar(props: Type) {
             {/* home page */}
             <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0`}>
               <Link href="/">
-                <div className="block text-gray-900 hover:text-blue-900 transition duration-150">
+                <div className="p-2 rounded block text-gray-100 hover:bg-gray-300 hover:text-gray-900 transition duration-150">
                   <div className="flex flex-grow">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +165,7 @@ function Sidebar(props: Type) {
             <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0`}>
               <Link href="/explore">
                 <div
-                  className={`block text-gray-900 hover:text-blue-900 transition duration-150`}
+                  className={`p-2 rounded block text-gray-100 hover:bg-gray-300 hover:text-gray-900 transition duration-150`}
                 >
                   <div className="flex flex-grow">
                     <svg

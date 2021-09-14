@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ModalAddMitra from "../../Modal/addMitra";
+import Address from "../../Address";
 import Table from "../../Table";
 interface Type {
   dataTab: Array<any>;
@@ -7,27 +8,54 @@ interface Type {
 
 export default function DataMitra(props: Type) {
   const { dataTab } = props;
-
+  const [filteredData, setFilteredData] = useState(dataTab);
+  const [load, setLoad] = useState<boolean>(false);
   const [modalAddData, setModalAddData] = useState(false);
+
+  const handleLoad = (data: any) => {
+    setLoad(false);
+    if (data !== "") {
+      const results = dataTab.filter((res) => {
+        return res.data.provinsi.toLowerCase().startsWith(data.toLowerCase());
+      });
+      setFilteredData(results);
+    } else {
+      setFilteredData([]);
+    }
+  };
+
+  const handleSearch = (data: string) => {
+    setLoad(false);
+    if (data !== "") {
+      const results = dataTab.filter((res) => {
+        return res.data.kota.toLowerCase().startsWith(data.toLowerCase());
+      });
+      setFilteredData(results);
+    } else {
+      setFilteredData([]);
+    }
+  };
   return (
     <>
       <div className="bg-gray-100 pt-2 pb-3">
-        <div className="text-center">
-          <h1>
-            <b>Data Mitra</b>
-          </h1>
+        <div className="mx-auto px-4 py-4">
+          <form method="POST">
+            <Address
+              handleLoad={(data: string) => handleLoad(data)}
+              handleSearch={(data: string) => handleSearch(data)}
+            />
+          </form>
         </div>
-
         <div className="flex flex-start px-3">
           <div className="rounded" onClick={() => setModalAddData(true)}>
-            <div className="bg-primary rounded text-white p-3">
-              <b aria-hidden="true">Tambah Data</b>
+            <div className="bg-primary rounded text-white p-3 cursor-pointer">
+              <b>Tambah Data</b>
             </div>
           </div>
         </div>
         <div className="p-3">
           <div className="rounded">
-            <Table dataTab={props.dataTab} />
+            <Table dataTab={filteredData} />
           </div>
         </div>
       </div>

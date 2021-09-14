@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 export default function Alert() {
   const [userLocation, setUserLocation] = useState("Daerah kamu");
   const [bencana, setBencana] = useState("covid19");
@@ -26,7 +26,11 @@ export default function Alert() {
         longitude: longitude,
       })
       .then((res) => {
-        setUserLocation(city);
+        {
+          city === null
+            ? setUserLocation("Daerah kamu")
+            : setUserLocation(city);
+        }
         setBencana(res.data[0].bencana);
         setlocationStatus(res.data[0].status);
       });

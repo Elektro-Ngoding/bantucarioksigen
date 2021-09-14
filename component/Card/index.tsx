@@ -165,7 +165,7 @@ export default function Card<T>(props: DataCard) {
               rel="nofollow noopener noreferrer"
               target="_blank"
             >
-              {props.kontak}
+              0{props.kontak}
             </a>
           </p>
           <div className="flex items-start">
