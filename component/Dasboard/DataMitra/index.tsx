@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ModalAddMitra from "../../Modal/addMitra";
 import Address from "../../Address";
 import Table from "../../Table";
+import Router from "next/router";
 interface Type {
   dataTab: Array<any>;
 }
@@ -11,6 +12,10 @@ export default function DataMitra(props: Type) {
   const [filteredData, setFilteredData] = useState(dataTab);
   const [load, setLoad] = useState<boolean>(false);
   const [modalAddData, setModalAddData] = useState(false);
+
+  useEffect(() => {
+    setFilteredData(dataTab);
+  }, [props]);
 
   const handleLoad = (data: any) => {
     setLoad(false);
