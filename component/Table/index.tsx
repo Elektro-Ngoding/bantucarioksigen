@@ -209,7 +209,7 @@ const Table = (props: DataTableProps) => {
         aktivasi: (
           <div className="cursor-pointer border-0 rounded-lg relative flex flex-col outline-none focus:outline-none">
             <div
-              className="text-white bg-pink-500 active:bg-blue-600 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              className="text-white bg-pink-500 active:bg-blue-600 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 cursor-pointer"
               onClick={() => {
                 handleAktivasi(
                   data._id,
@@ -234,10 +234,10 @@ const Table = (props: DataTableProps) => {
         provinsi: data.data.provinsi,
         kota: data.data.kota,
         alamat: data.data.alamat,
-        kontak: data.data.kontak,
+        kontak: "0" + data.data.kontak,
         updated_date: <Moment fromNow>{data.data.updated_date}</Moment>,
         detail: (
-          <div className="border-0 rounded-lg relative flex flex-col outline-none focus:outline-none">
+          <div className="border-0 rounded-lg relative flex flex-col outline-none focus:outline-none cursor-pointer">
             <div
               onClick={() =>
                 handleDetail(
@@ -250,16 +250,16 @@ const Table = (props: DataTableProps) => {
                   data.data.waktuTutup
                 )
               }
-              className="text-white bg-blue-900 active:bg-blue-600 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              className="text-white bg-blue-900 active:bg-blue-600 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 cursor-pointer"
             >
               Detail
             </div>
           </div>
         ),
         update: (
-          <div className="border-0 rounded-lg relative flex flex-col outline-none focus:outline-none">
+          <div className="border-0 rounded-lg relative flex flex-col outline-none focus:outline-none cursor-pointer">
             <div
-              className="text-white bg-green-500 active:bg-blue-600 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              className="text-white bg-green-500 active:bg-blue-600 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 cursor-pointer"
               onClick={() => {
                 handleUpdate(
                   data._id,
@@ -282,10 +282,10 @@ const Table = (props: DataTableProps) => {
           </div>
         ),
         delete: (
-          <div className="border-0 rounded-lg relative flex flex-col outline-none focus:outline-none">
+          <div className="border-0 rounded-lg relative flex flex-col outline-none focus:outline-none cursor-pointer">
             <div
               onClick={() => handleDelete(data._id, data.namaToko)}
-              className="text-white bg-red-500 active:bg-blue-600 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              className="text-white bg-red-500 active:bg-blue-600 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 cursor-pointer"
             >
               Delete
             </div>

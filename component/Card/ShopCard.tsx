@@ -29,7 +29,7 @@ export default function ShopCard<T>(props: Type) {
         <div>
           <p className="text-gray-500 truncate font-bold">{props.namaBarang}</p>
         </div>
-        <div className="w-full sm:grid grid-cols-2 px-1">
+        <div className="w-full sm:grid grid-cols-2">
           <b className="p-1 rounded bg-red-500 text-white truncate">
             Rp: {props.product_price}
           </b>

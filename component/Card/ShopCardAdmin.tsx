@@ -25,7 +25,7 @@ export default function ShopCardAdmin<T>(props: any) {
               <Image
                 src={props.image_url}
                 alt="thumbnail"
-                width={280}
+                width={305}
                 height={200}
               />
             </div>
@@ -43,13 +43,13 @@ export default function ShopCardAdmin<T>(props: any) {
           <div className="grid grid-cols-2">
             <div
               onClick={handleUpdate}
-              className="text-white bg-green-500 hover:bg-green-400 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              className="text-white bg-green-500 hover:bg-green-400 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 cursor-pointer"
             >
               Update
             </div>
             <div
               onClick={handleDelete}
-              className="text-white bg-red-500 hover:bg-red-400 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              className="text-white bg-red-500 hover:bg-red-400 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 cursor-pointer"
             >
               Delete
             </div>

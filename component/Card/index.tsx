@@ -43,7 +43,7 @@ export default function Card<T>(props: DataCard) {
   }, []);
 
   const handleCopyKontak = () => {
-    navigator.clipboard.writeText(`${props.kontak}`);
+    navigator.clipboard.writeText(`0${props.kontak}`);
     setKontakTersalin(true);
     setTimeout(() => {
       setKontakTersalin(false);
@@ -161,7 +161,7 @@ export default function Card<T>(props: DataCard) {
             </svg>
             <a
               className="text-indigo-600 hover:text-indigo-500 relative"
-              href={`http://wa.me/${props.kontak}`}
+              href={`http://wa.me/0${props.kontak}`}
               rel="nofollow noopener noreferrer"
               target="_blank"
             >

@@ -171,13 +171,13 @@ export default function Shop(props: Type) {
                               <div className="image-item__btn-wrapper py-1">
                                 <div
                                   onClick={() => onImageUpdate(index)}
-                                  className="bg-green-500 text-white rounded p-1"
+                                  className="bg-green-500 text-white rounded p-1 cursor-pointer"
                                 >
                                   Update
                                 </div>
                                 <div
                                   onClick={() => onImageRemove(index)}
-                                  className="bg-red-500 text-white rouded p-1"
+                                  className="bg-red-500 text-white rouded p-1 cursor-pointer"
                                 >
                                   Remove
                                 </div>
@@ -204,7 +204,7 @@ export default function Shop(props: Type) {
                   onClick={() => {
                     props.setAddDataModal(false);
                   }}
-                  className="text-white bg-red-500 hover:bg-red-400 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                  className="text-white bg-red-500 hover:bg-red-400 font-bold uppercase text-sm px-3 py-3 rounded hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 cursor-pointer"
                 >
                   cancel
                 </div>
