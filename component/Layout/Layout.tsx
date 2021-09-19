@@ -22,7 +22,7 @@ const Layout = (props: Type) => {
           name="description"
           content={pageDeskripsi}
         />
-        <meta property="og:url" content={`${process.env.BASE_URL}${pageUrl}`} />
+        <meta property="og:url" content={`${process.env.HOST}${pageUrl}`} />
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
         <meta
           name="viewport"
