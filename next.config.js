@@ -7,9 +7,10 @@ dotenvLoad();
 const withNextEnv = nextEnv();
 module.exports = withPWA({
   pwa: {
-    dest: 'public'
+    dest: "public",
   },
   env: {
+    HOST: process.env.HOST,
     BASE_URL: process.env.API_HOST,
     API_HOST_ROUTER: process.env.API_HOST_ROUTER,
     API_HOST_ROUTER_1: process.env.API_HOST_ROUTER_1,
