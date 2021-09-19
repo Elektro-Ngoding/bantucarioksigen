@@ -94,7 +94,7 @@ export default function Home(props: Type) {
           <div className="p-2">
             <button
               type="submit"
-              className="btn p-2 bg-blue-900 rounded text-gray-100"
+              className="p-2 bg-blue-900 rounded text-gray-100"
             >
               Update
             </button>
@@ -134,7 +134,7 @@ export default function Home(props: Type) {
           <div className="p-2">
             <button
               type="submit"
-              className="btn p-2 bg-blue-900 rounded text-gray-100"
+              className="p-2 bg-blue-900 rounded text-gray-100"
             >
               Update
             </button>
@@ -174,7 +174,7 @@ export default function Home(props: Type) {
           <div className="p-2">
             <button
               type="submit"
-              className="btn p-2 bg-blue-900 rounded text-gray-100"
+              className="p-2 bg-blue-900 rounded text-gray-100"
             >
               Update
             </button>
