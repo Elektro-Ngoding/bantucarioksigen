@@ -105,8 +105,8 @@ export default function DataShop(props: any) {
                     setAddDataModal={setAddDataModal}
                     _id={"admin"}
                     namaToko={"sumber dari google"}
-                    provinsi={""}
-                    kota={""}
+                    provinsi={"not found"}
+                    kota={"not found"}
                   />
                 </div>
               </div>

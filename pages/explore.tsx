@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react";
+import Address from "../component/Address/index";
 import ShopCard from "../component/Card/ShopCard";
 import Layout from "../component/Layout/Layout";
-import Address from "../component/Address/index";
-import { useState, useEffect } from "react";
-import withAuth from "../HOC/withAuth";
+import Link from "next/link";
 interface Type {
   dataCard: Array<any>;
 }
@@ -11,6 +11,7 @@ function Explore(props: Type) {
   const { dataCard } = props;
   const [filteredData, setFilteredData] = useState(dataCard);
   const [load, setLoad] = useState<boolean>(false);
+  const [alert, setAlert] = useState(true);
   useEffect(() => {
     setFilteredData(dataCard);
   }, []);
@@ -47,6 +48,37 @@ function Explore(props: Type) {
     >
       <section className="overflow-hidden px-4 py-6 pb-4 space-y-4 pt-16">
         <div className="w-full sm:max-w-xl mx-auto pt-2 px-2">
+          {alert ? (
+            <>
+              <div className="text-center pb-2 mb-2 lg:px-4 rounded">
+                <div
+                  className="rounded-full p-2 bg-blue-200 items-center text-black-500 leading-none lg:rounded-full flex lg:inline-flex"
+                  role="alert"
+                >
+                  <Link href="/Auth/login">
+                    <span className="cursor-pointer px-2 mr-3 font-semibold mr-2 text-left flex-auto text-gray-800 text-xs">
+                      Jadilah Mitra Oksigen dan Tambahkan Produk Kamu Sekarang
+                    </span>
+                  </Link>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="fill-current opacity-75 h-6 w-6 ml-3 hover:text-red-500 cursor-pointer"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    onClick={() => setAlert(false)}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </>
+          ) : null}
           <div className="text-lg sm:text-xl mb-3 ">
             <Address
               handleLoad={(data: string) => handleLoad(data)}

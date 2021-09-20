@@ -40,11 +40,11 @@ export default function about() {
                 perushaan/brand yang ingin bekerja sama dapat berkolaborasi
                 dengan BantuCari dengan cara mengirim email ke alamat :
               </p>
-              <a href="mailto:">
+              <a href="mailto:bantucarioksigen@gmail.com">
                 bantucarioksigen@gmail.com
               </a>
               <div className="flex flex-wrap justify-center items-center relative bg-gray-200 p-3">
-                <a href="mailto:">
+                <a href="mailto:bantucarioksigen@gmail.com">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 mx-1 text-black hover:text-blue-900"
