@@ -45,7 +45,7 @@ export default function Profile(props: Type) {
     setAntrian(props.antrian);
     setWaktuBuka(props.waktuBuka);
     setWaktuTutup(props.waktuTutup);
-  }, [props]);
+  }, [modal]);
 
   //noted
   const handleCloseModal = () => {
