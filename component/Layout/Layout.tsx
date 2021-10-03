@@ -43,11 +43,6 @@ const Layout = (props: Type) => {
         />
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#1e3a8a" />
-        <script
-          data-ad-client="ca-pub-4542342955406169"
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        ></script>
       </Head>
       <main className="flex flex-col w-full min-h-screen bg-gray-100">
         <>

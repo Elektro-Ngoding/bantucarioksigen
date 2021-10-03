@@ -92,6 +92,13 @@ export default function Home(props: DataProps) {
       pageDeskripsi="Informasi ketersediaan oksigen yang yang ada di setiap kota di Indonesia, yang dikelola langsung oleh mitra penjual"
       pageUrl={`/`}
     >
+      <head>
+        <script
+          data-ad-client="ca-pub-4542342955406169"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+      </head>
       <section className="flex flex-col flex-1 py-16">
         <div className="w-full sm:max-w-xl mx-auto pt-4 px-4">
           <Alert />
